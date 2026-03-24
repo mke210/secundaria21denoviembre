@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Secundaria 21 de Noviembre | Excelencia Educativa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        :root {
+            --navy: #0a2b4e;
+            --sky: #7fc9ff;
+            --red: #e3342f;
+            --white: #ffffff;
+            --light-bg: #f8fafc;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        section {
+            padding: 5rem 0;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--red);
+            border-radius: 2px;
+        }
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--red);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(227, 52, 47, 0.3);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--navy);
+            color: var(--navy);
+        }
+        .btn-outline:hover {
+            background: var(--navy);
+            color: white;
+            border-color: var(--navy);
+        }
+        header {
+            background: var(--navy);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .logo p {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--sky);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--sky);
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        .hero {
+            background: linear-gradient(135deg, rgba(10,43,78,0.88), rgba(10,43,78,0.75)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 7rem 0;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: var(--white);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eef2f6;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 30px -12px rgba(0,0,0,0.1);
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        .motto {
+            background: linear-gradient(120deg, var(--sky), #9ad0ff);
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 2rem;
+            margin: 2rem 0;
+        }
+        .motto blockquote {
+            font-size: 2rem;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--navy);
+        }
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .img-placeholder {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .img-placeholder img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .img-placeholder img:hover {
+            transform: scale(1.02);
+        }
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .activity-item {
+            background: var(--white);
+            border-radius: 1.2rem;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+        .activity-item:hover {
+            transform: translateY(-4px);
+        }
+        .activity-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .activity-content {
+            padding: 1.5rem;
+        }
+        .dates-list {
+            list-style: none;
+        }
+        .dates-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 1rem;
+            align-items: baseline;
+        }
+        .dates-list .date {
+            font-weight: 800;
+            color: var(--red);
+            min-width: 100px;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        .contact-info i {
+            width: 30px;
+            color: var(--red);
+            margin-right: 0.5rem;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .social-icons a {
+            background: var(--navy);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: 0.2s;
+        }
+        .social-icons a:hover {
+            background: var(--red);
+            transform: scale(1.05);
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.8rem;
+            font-family: inherit;
+        }
+        .contact-form button {
+            width: 100%;
+            justify-content: center;
+        }
+        .map {
+            border-radius: 1.2rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+        footer {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        @media (max-width: 860px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .two-columns, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <h1>Secundaria 21 de Noviembre</h1>
+                    <p>Excelencia y compromiso social</p>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#metodo">Método</a></li>
+                    <li><a href="#actividades">Actividades</a></li>
+                    <li><a href="#talleres">Talleres</a></li>
+                    <li><a href="#admision">Admisión</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1>Bienvenidos a la Secundaria 21 de Noviembre</h1>
+                <p>Formamos jóvenes con valores, pensamiento crítico y liderazgo para transformar su entorno.</p>
+                <a href="#admision" class="btn"><i class="fas fa-graduation-cap"></i> Inscríbete ahora</a>
+            </div>
+        </section>
+
+        <section id="nosotros">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Nuestra Esencia</h2>
+                </div>
+                <div class="grid-3">
+                    <div class="card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Misión</h3>
+                        <p>Ofrecer una educación integral basada en valores humanistas y excelencia académica, desarrollando competencias para la vida y el compromiso social en nuestros estudiantes.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Visión</h3>
+                        <p>Ser referente educativo regional por nuestra innovación pedagógica, inclusión y formación de líderes capaces de contribuir al desarrollo sostenible de su comunidad.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-hand-heart"></i>
+                        <h3>Valores</h3>
+                        <p>Respeto, responsabilidad, honestidad, solidaridad y pasión por aprender. Estos pilares guían nuestra convivencia diaria.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="motto">
+                <blockquote>“Forjamos el futuro con sabiduría y corazón”</blockquote>
+                <p style="margin-top: 1rem; font-weight: 500;">— Lema institucional 21 de Noviembre —</p>
+            </div>
+        </div>
+
+        <section id="metodo">
+            <div class="container">
+                <div class="two-columns">
+                    <div>
+                        <h2>Método Educativo</h2>
+                        <p style="margin-bottom: 1rem;">Nuestro modelo combina Aprendizaje Basado en Proyectos (ABP), tecnología educativa y acompañamiento personalizado. Fomentamos el pensamiento crítico, la creatividad y el trabajo colaborativo, preparando a los estudiantes para los desafíos del siglo XXI.</p>
+                        <p>Contamos con laboratorios de ciencias, talleres de robótica, clubes de lectura y un programa de inglés intensivo. La evaluación formativa y el desarrollo socioemocional son ejes transversales.</p>
+                        <a href="#" class="btn-outline btn" style="margin-top: 1.5rem;"><i class="fas fa-chalkboard-user"></i> Conoce más</a>
+                    </div>
+                    <div class="img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aula moderna con estudiantes">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: var(--light-bg);">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Servicios Escolares</h2>
+                </div>
+                <div class="grid-3">
+                    <div class="card"><i class="fas fa-book-open"></i><h3>Biblioteca digital</h3><p>Más de 5,000 recursos digitales y físicos, sala de lectura y asesorías personalizadas.</p></div>
+                    <div class="card"><i class="fas fa-futbol"></i><h3>Deporte y Recreación</h3><p>Canchas deportivas, ligas internas de fútbol, basquetbol, voleibol y torneos interescolares.</p></div>
+                    <div class="card"><i class="fas fa-hand-sparkles"></i><h3>Apoyo psicológico</h3><p>Departamento de Orientación Educativa y Psicología para bienestar emocional y acompañamiento.</p></div>
+                    <div class="card"><i class="fas fa-bus"></i><h3>Transporte escolar</h3><p>Rutas seguras con monitoreo GPS y personal capacitado (servicio opcional).</p></div>
+                    <div class="card"><i class="fas fa-laptop-code"></i><h3>Aulas tecnológicas</h3><p>Equipamiento con Chromebooks, pizarrones interactivos y conectividad wifi de alta velocidad.</p></div>
+                    <div class="card"><i class="fas fa-utensils"></i><h3>Cooperativa saludable</h3><p>Alimentos nutritivos, desayunos escolares balanceados y opciones para necesidades especiales.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIVIDADES: imagen cultura mexicana, fútbol, torneo de ajedrez (sin texto "bailable mexicano") -->
+        <section id="actividades">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Actividades extracurriculares</h2>
+                    <p>Vive experiencias únicas que complementan tu formación</p>
+                </div>
+                <div class="activity-grid">
+                    <div class="activity-item">
+                        <div class="activity-img" style="background-image: url('https://images.unsplash.com/photo-1531123414780-f74242c2b052?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="activity-content">
+                            <h3>Arte y Cultura Mexicana</h3>
+                            <p>Talleres de danza folklórica, presentaciones en festivales y preservación de nuestras tradiciones.</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-img" style="background-image: url('https://images.unsplash.com/photo-1577223625816-7546f13df25d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="activity-content">
+                            <h3>Ligas Deportivas • Fútbol</h3>
+                            <p>Competencias internas y representación en torneos zonales. Formamos equipos con espíritu deportivo.</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-img" style="background-image: url('https://images.unsplash.com/photo-1586165368502-1bad197a6461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="activity-content">
+                            <h3>Torneo de Ajedrez</h3>
+                            <p>Desarrolla estrategia, concentración y pensamiento lógico. Participa en torneos internos y regionales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TALLERES ESPECIALIZADOS -->
+        <section id="talleres" style="background: var(--light-bg);">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Talleres Especializados</h2>
+                    <p>Formación técnica para el futuro</p>
+                </div>
+                <div class="grid-3">
+                    <div class="card"><i class="fas fa-robot"></i><h3>Robótica Educativa</h3><p>Diseño, construcción y programación de robots. Participación en competencias de robótica.</p></div>
+                    <div class="card"><i class="fas fa-brain"></i><h3>Inteligencia Artificial</h3><p>Introducción a machine learning, redes neuronales y aplicaciones éticas de IA.</p></div>
+                    <div class="card"><i class="fas fa-gamepad"></i><h3>Programación de Juegos</h3><p>Desarrollo de videojuegos con Unity y Python. Creatividad y lógica de programación.</p></div>
+                    <div class="card"><i class="fas fa-desktop"></i><h3>Reparación de Equipos de Cómputo</h3><p>Mantenimiento preventivo y correctivo, diagnóstico de hardware y software.</p></div>
+                    <div class="card"><i class="fas fa-bolt"></i><h3>Electricidad</h3><p>Circuitos eléctricos, instalaciones residenciales, seguridad y automatización básica.</p></div>
+                    <div class="card"><i class="fas fa-file-excel"></i><h3>Ofimática</h3><p>Dominio de Word, Excel, PowerPoint y herramientas colaborativas en la nube.</p></div>
+                    <div class="card"><i class="fas fa-plane"></i><h3>Turismo</h3><p>Cultura, guía turística, patrimonio local y emprendimiento en servicios turísticos.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FECHAS + ACREDITACIÓN -->
+        <section>
+            <div class="container">
+                <div class="two-columns">
+                    <div>
+                        <h2>Calendario escolar 2025-2026</h2>
+                        <ul class="dates-list">
+                            <li><span class="date">21 Nov 2025</span> Aniversario de la escuela · Gran convivencia</li>
+                            <li><span class="date">12 Dic 2025</span> Festival cultural de invierno</li>
+                            <li><span class="date">10 Mar 2026</span> Entrega de calificaciones 2do trimestre</li>
+                            <li><span class="date">28 Abr 2026</span> Expo-proyectos tecnológicos</li>
+                            <li><span class="date">15 Jun 2026</span> Ceremonia de graduación generación 2026</li>
+                        </ul>
+                        <p style="margin-top:1rem;"><i class="fas fa-calendar-alt" style="color: var(--red);"></i> Inscripciones abiertas: febrero - marzo 2026</p>
+                    </div>
+                    <div>
+                        <h2>Acreditación Académica</h2>
+                        <div class="card" style="background: white;">
+                            <i class="fas fa-award" style="font-size: 2rem;"></i>
+                            <p style="margin:1rem 0">Reconocimiento de validez oficial SEP · Evaluación externa “Excelencia Educativa” nivel platino · Certificación en modelo de gestión de calidad ISO 21001.</p>
+                            <div class="img-placeholder" style="margin-top:1rem;">
+                                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Certificados académicos">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="admision">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Proceso de Admisión</h2>
+                    <p style="max-width:700px; margin:0 auto 2rem;">Únete a nuestra comunidad educativa. Pasos sencillos para formar parte de la familia 21 de Noviembre.</p>
+                </div>
+                <div class="grid-3" style="margin-bottom: 2rem;">
+                    <div class="card"><i class="fas fa-file-alt"></i><h3>1. Registro en línea</h3><p>Completa el formulario de preinscripción con datos del alumno y documentos digitales.</p></div>
+                    <div class="card"><i class="fas fa-id-card"></i><h3>2. Documentación</h3><p>Acta de nacimiento, CURP, certificado de primaria y comprobante de domicilio.</p></div>
+                    <div class="card"><i class="fas fa-chalkboard"></i><h3>3. Evaluación diagnóstica</h3><p>Talleres de nivelación y entrevista con orientación educativa.</p></div>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn"><i class="fab fa-whatsapp"></i> Contactar a admisiones</a>
+                    <a href="#" class="btn-outline btn" style="margin-left: 1rem;"><i class="fas fa-download"></i> Descargar ficha</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" style="background: var(--light-bg);">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Contacto</h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Calle Principal s/n, Esquipulas Xoxocotlán, Oaxaca, México. C.P. 71230</p>
+                        <p><i class="fas fa-phone-alt"></i> <strong>Teléfono:</strong> (951) 123 4567</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> contacto@secundaria21nov.edu.mx</p>
+                        <div class="social-icons">
+                            <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form" action="#" method="post">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="tel" placeholder="Teléfono">
+                        <textarea rows="4" placeholder="Mensaje o consulta"></textarea>
+                        <button type="submit" class="btn">Enviar mensaje</button>
+                    </form>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-96.722%2C16.987%2C-96.718%2C16.991&layer=mapnik&marker=16.989%2C-96.720" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Escuela Secundaria General 21 de Noviembre · Esquipulas Xoxocotlán · Educación pública de calidad</p>
+            <p style="margin-top:0.5rem; font-size:0.8rem;">“Forjamos el futuro con sabiduría y corazón”</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
