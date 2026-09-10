@@ -215,15 +215,19 @@
   .vida .section-head p{color:#C9DCF0;}
   .vida-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:26px;position:relative;}
   .banda-card{background:linear-gradient(160deg,var(--navy),var(--navy-deep));border:1px solid rgba(231,170,59,.35);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;justify-content:center;}
-  .banda-card .icon-wrap{width:88px;height:88px;border-radius:16px;background:rgba(255,255,255,.96);display:flex;align-items:center;justify-content:center;margin-bottom:18px;padding:10px;box-shadow:0 10px 24px rgba(0,0,0,.35);}
-  .banda-card .icon-wrap img{width:100%;height:100%;object-fit:contain;}
+  .banda-card .icon-wrap{width:56px;height:56px;border-radius:13px;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;margin-bottom:18px;animation:bob 5s ease-in-out infinite;overflow:hidden;}
+  .banda-card .icon-wrap svg{width:28px;height:28px;}
+  .banda-card .icon-wrap img{width:44px;height:44px;object-fit:contain;}
   .banda-card h3{color:var(--white);font-size:1.32rem;}
   .banda-card p{color:#C9DCF0;}
-  .deportes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .deportes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .deporte-card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.13);border-radius:var(--radius);padding:24px;transition:transform .3s var(--ease),border-color .2s ease;}
   .deporte-card:hover{transform:translateY(-6px);border-color:var(--gold);}
-  .deporte-card .icon-wrap{width:64px;height:64px;border-radius:14px;background:rgba(255,255,255,.96);display:flex;align-items:center;justify-content:center;margin-bottom:14px;padding:8px;box-shadow:0 6px 16px rgba(0,0,0,.3);}
-  .deporte-card .icon-wrap img{width:100%;height:100%;object-fit:contain;}
+  .deporte-card .icon-wrap{width:46px;height:46px;border-radius:50%;background:var(--sky);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px;animation:floatY 5s ease-in-out infinite;overflow:hidden;}
+  .deporte-card:nth-child(2) .icon-wrap{animation-delay:.6s;}
+  .deporte-card:nth-child(3) .icon-wrap{animation-delay:1.2s;}
+  .deporte-card .icon-wrap svg{width:24px;height:24px;}
+  .deporte-card .icon-wrap img{width:36px;height:36px;object-fit:contain;}
   .deporte-card h4{color:var(--white);font-family:'Inter';font-weight:700;font-size:1rem;margin-bottom:6px;}
   .deporte-card p{color:#B9CCE5;font-size:.88rem;margin:0;}
   .zona-note{grid-column:1 / -1;display:flex;align-items:center;gap:12px;color:var(--gold-bright);font-size:.9rem;font-weight:600;margin-top:4px;}
@@ -317,7 +321,6 @@
   @media (max-width:600px){
     section{padding:72px 0;}
     .mvp-grid,.docs-grid,.footer-grid{grid-template-columns:1fr;}
-    .deportes-grid{grid-template-columns:1fr;}
     form.contact-form .row2{grid-template-columns:1fr;}
     .testimonios{padding:32px 22px;}
   }
@@ -381,7 +384,7 @@
     <div class="hero-shield rise rise-3">
       <span class="shield-ring" aria-hidden="true"></span>
       <span class="shield-ring r2" aria-hidden="true"></span>
-      <img src="escudo.png" alt="Escudo institucional E.S.G. 21 de Noviembre, Esquipulas — Ciencia y Virtud" width="320" height="320" fetchpriority="high">
+      <img src="escudo.png" alt="Escudo institucional E.S.G. 21 de Noviembre, Esquipulas — Ciencia y Virtud">
     </div>
   </div>
 
@@ -682,44 +685,44 @@
     <div class="vida-layout">
       <div class="banda-card">
         <div class="icon-wrap">
-          <img src="img/icono-tambor.png" alt="Tambor de la Banda de Guerra" width="88" height="88" loading="lazy" decoding="async">
+          <img src="img/icono-tambor.png" alt="Tambor de la Banda de Guerra">
         </div>
         <h3>Banda de Guerra</h3>
         <p>Nuestra Banda de Guerra representa a la escuela en desfiles y actos cívicos, y es un espacio donde las y los estudiantes desarrollan disciplina, orden y trabajo en equipo.</p>
         <div class="banda-photos">
           <figure class="banda-photo">
-            <img src="img/banda-guerra-1.jpg" alt="La Banda de Guerra en formación durante una presentación escolar" loading="lazy" decoding="async">
+            <img src="img/banda-guerra-1.jpg" alt="La Banda de Guerra en formación durante una presentación escolar" loading="lazy">
           </figure>
           <figure class="banda-photo">
-            <img src="img/banda-guerra-2.jpg" alt="Integrantes de la Banda de Guerra con tambores y trompetas" loading="lazy" decoding="async">
+            <img src="img/banda-guerra-2.jpg" alt="Integrantes de la Banda de Guerra con tambores y trompetas" loading="lazy">
           </figure>
         </div>
       </div>
       <div class="deportes-grid">
         <div class="deporte-card">
           <div class="icon-wrap">
-            <img src="img/icono-basquetbol.png" alt="Jugador de basquetbol" width="64" height="64" loading="lazy" decoding="async">
+            <img src="img/icono-basquetbol.png" alt="Jugador de basquetbol">
           </div>
           <h4>Basquetbol</h4>
           <p>Equipo escolar que compite en los torneos de la zona.</p>
         </div>
         <div class="deporte-card">
           <div class="icon-wrap">
-            <img src="img/icono-futbol.png" alt="Jugador de futbol 7" width="64" height="64" loading="lazy" decoding="async">
+            <img src="img/icono-futbol.png" alt="Jugador de futbol 7">
           </div>
           <h4>Futbol 7</h4>
           <p>Entrenamientos y participación en el calendario deportivo escolar.</p>
         </div>
         <div class="deporte-card">
           <div class="icon-wrap">
-            <img src="img/icono-voleibol.png" alt="Jugadora de voleibol" width="64" height="64" loading="lazy" decoding="async">
+            <img src="img/icono-voleibol.png" alt="Jugadora de voleibol">
           </div>
           <h4>Voleibol</h4>
           <p>Selección femenil y varonil que representa a la institución.</p>
         </div>
         <div class="deporte-card">
           <div class="icon-wrap">
-            <img src="img/icono-ajedrez.png" alt="Piezas de ajedrez" width="64" height="64" loading="lazy" decoding="async">
+            <img src="img/icono-ajedrez.png" alt="Piezas de ajedrez">
           </div>
           <h4>Ajedrez</h4>
           <p>Nuevo proyecto escolar que desarrolla concentración, estrategia y pensamiento lógico.</p>
@@ -810,31 +813,31 @@
     <div class="h-carousel" id="momentosCarousel">
       <div class="momento-card">
         <div class="momento-media">
-          <img src="img/navidad-manualidades.jpg" alt="Manualidades navideñas elaboradas por los estudiantes" loading="lazy" decoding="async" width="480" height="170">
+          <img src="img/navidad-manualidades.jpg" alt="Manualidades navideñas elaboradas por los estudiantes">
         </div>
         <div class="momento-body"><span class="momento-tag">Navidad</span><h4>Manualidades navideñas</h4><p>Adornos y velas elaborados por los estudiantes para las fiestas decembrinas.</p></div>
       </div>
       <div class="momento-card">
         <div class="momento-media">
-          <img src="img/muertos-comparsa.jpg" alt="Comparsa prehispánica en la celebración de Día de Muertos" loading="lazy" decoding="async" width="480" height="170">
+          <img src="img/muertos-comparsa.jpg" alt="Comparsa prehispánica en la celebración de Día de Muertos">
         </div>
         <div class="momento-body"><span class="momento-tag">Día de Muertos</span><h4>Comparsa prehispánica</h4><p>Alumnos caracterizados con temática prehispánica en la celebración de Día de Muertos.</p></div>
       </div>
       <div class="momento-card">
         <div class="momento-media">
-          <img src="img/muertos-disfraces.jpg" alt="Disfraces y catrinas de estudiantes y familias" loading="lazy" decoding="async" width="480" height="170">
+          <img src="img/muertos-disfraces.jpg" alt="Disfraces y catrinas de estudiantes y familias">
         </div>
         <div class="momento-body"><span class="momento-tag">Día de Muertos</span><h4>Disfraces y catrinas</h4><p>Estudiantes y familias participando con catrinas y disfraces.</p></div>
       </div>
       <div class="momento-card">
         <div class="momento-media">
-          <img src="img/muertos-mojiganga.jpg" alt="Mojiganga escolar por las calles de Esquipulas" loading="lazy" decoding="async" width="480" height="170">
+          <img src="img/muertos-mojiganga.jpg" alt="Mojiganga escolar por las calles de Esquipulas">
         </div>
         <div class="momento-body"><span class="momento-tag">Día de Muertos</span><h4>Mojiganga por las calles</h4><p>La comunidad escolar salió con una mojiganga por las calles de Esquipulas.</p></div>
       </div>
       <div class="momento-card">
         <div class="momento-media">
-          <img src="img/navidad-cartas.jpg" alt="Cartas y tarjetas navideñas elaboradas por los alumnos" loading="lazy" decoding="async" width="480" height="170">
+          <img src="img/navidad-cartas.jpg" alt="Cartas y tarjetas navideñas elaboradas por los alumnos">
         </div>
         <div class="momento-body"><span class="momento-tag">Navidad</span><h4>Cartas navideñas</h4><p>Mensajes y tarjetas de Navidad elaborados por nuestros alumnos.</p></div>
       </div>
@@ -915,7 +918,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="escudo.png" alt="Escudo de la Escuela Secundaria General 21 de Noviembre" width="56" height="56">
+        <img src="escudo.png" alt="Escudo de la Escuela Secundaria General 21 de Noviembre">
         <div>
           <h4>Secundaria General 21 de Noviembre</h4>
           <p>Esquipulas, Xoxocotlán, Oaxaca · Ciencia y Virtud</p>
@@ -942,7 +945,7 @@
         <h5>Síguenos</h5>
         <ul>
           <li><a href="https://www.facebook.com/profile.php?id=61572067992651&locale=es_LA" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="mailto:contacto@secundaria21noviembre.mx">Correo</a></li>
+          <li><a href="mailto:contacto@secundaria21noviembre.com">Correo</a></li>
         </ul>
       </div>
     </div>
