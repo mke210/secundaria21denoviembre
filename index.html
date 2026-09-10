@@ -1,3 +1,1077 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escuela Secundaria General 21 de Noviembre — Esquipulas, Xoxocotlán, Oaxaca</title>
+  <meta name="description" content="Sitio institucional de la Escuela Secundaria General 21 de Noviembre. Ciencia y Virtud.">
+  <style>
+    /* ===== RESET Y BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #2c2c2c;
+      background: #fafafa;
+    }
+    a { color: #1a5276; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img, video { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #1a5276 0%, #2980b9 100%);
+      color: #fff;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .header-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .header-brand h1 { font-size: 1.1rem; font-weight: 700; }
+    .header-brand small { font-size: 0.8rem; opacity: 0.85; display: block; }
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+    }
+    nav a {
+      color: #fff;
+      font-size: 0.9rem;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    nav a:hover { border-bottom-color: #f1c40f; text-decoration: none; }
+    .header-social a {
+      color: #fff;
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.15);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #2980b9 0%, #1a5276 100%);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .hero h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .hero .lema { font-size: 1.1rem; font-style: italic; opacity: 0.9; margin-bottom: 1.5rem; }
+    .hero p { max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); text-decoration: none; }
+    .btn-primary { background: #f1c40f; color: #1a5276; }
+    .btn-outline { border: 2px solid #fff; color: #fff; }
+
+    /* ===== SECCIONES ===== */
+    section { padding: 3.5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.6rem;
+      color: #1a5276;
+      margin-bottom: 0.5rem;
+      border-left: 5px solid #f1c40f;
+      padding-left: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+    }
+    .bg-light { background: #f0f4f8; }
+    .bg-white { background: #fff; }
+
+    /* ===== MISIÓN / VISIÓN / FILOSOFÍA ===== */
+    .mvf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .mvf-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      border-top: 4px solid #2980b9;
+    }
+    .mvf-card h3 { color: #1a5276; margin-bottom: 0.75rem; font-size: 1.2rem; }
+    .valores-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .valores-list span {
+      background: #eaf2fb;
+      color: #1a5276;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* ===== QUIÉNES SOMOS ===== */
+    .quienes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .quienes-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .quienes-card h4 { color: #1a5276; margin-bottom: 0.5rem; }
+    .quienes-card p { font-size: 0.95rem; color: #555; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .stat-card {
+      background: #1a5276;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+    .stat-card .number { font-size: 2rem; font-weight: 700; color: #f1c40f; }
+    .stat-card .label { font-size: 0.85rem; margin-top: 0.25rem; }
+
+    /* ===== DIRECTORIO ===== */
+    .directorio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .directorio-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-left: 4px solid #f1c40f;
+    }
+    .directorio-card h4 { color: #1a5276; font-size: 1rem; margin-bottom: 0.25rem; }
+    .directorio-card p { font-size: 0.9rem; color: #666; }
+
+    /* ===== TESTIMONIOS ===== */
+    .testimonios-slider {
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonio {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      margin-bottom: 1rem;
+      border-left: 4px solid #2980b9;
+    }
+    .testimonio blockquote {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 0.75rem;
+    }
+    .testimonio cite {
+      font-size: 0.85rem;
+      color: #1a5276;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    /* ===== TALLERES ===== */
+    .talleres-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .taller-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      text-align: center;
+      border-top: 4px solid #2980b9;
+      transition: transform 0.2s;
+    }
+    .taller-card:hover { transform: translateY(-4px); }
+    .taller-card .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .taller-card h4 { color: #1a5276; margin-bottom: 0.5rem; }
+    .taller-card p { font-size: 0.9rem; color: #666; }
+
+    /* ===== VIDA ESTUDIANTIL ===== */
+    .vida-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .vida-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .vida-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .vida-card h4 { color: #1a5276; margin-bottom: 0.5rem; }
+    .vida-card p { font-size: 0.9rem; color: #666; }
+
+    /* ===== HORARIOS / TABLA ===== */
+    .tabla-horarios {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .tabla-horarios th, .tabla-horarios td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .tabla-horarios th {
+      background: #1a5276;
+      color: #fff;
+      font-weight: 600;
+    }
+    .tabla-horarios tr:last-child td { border-bottom: none; }
+    .tabla-horarios tr:hover td { background: #f0f4f8; }
+
+    .requisitos-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .requisitos-list li {
+      padding: 0.5rem 0.75rem;
+      background: #eaf2fb;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .requisitos-list li::before { content: "✓ "; color: #27ae60; font-weight: 700; }
+
+    .docs-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+    .doc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .doc-item .icon { font-size: 1.5rem; }
+    .doc-item span { font-size: 0.9rem; color: #555; }
+
+    /* ===== NOTICIAS / RECURSOS ===== */
+    .noticias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .noticia-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+    .noticia-card:hover { transform: translateY(-4px); }
+    .noticia-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .noticia-card .card-body { padding: 1.25rem; }
+    .noticia-card .tag {
+      display: inline-block;
+      background: #eaf2fb;
+      color: #1a5276;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+    }
+    .noticia-card h4 { color: #1a5276; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .noticia-card p { font-size: 0.9rem; color: #666; }
+
+    /* ===== VIDEO AJEDREZ ===== */
+    .noticia-ajedrez {
+      grid-column: 1 / -1;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      border-top: 4px solid #f1c40f;
+    }
+    .noticia-ajedrez .card-body { padding: 1.5rem; }
+    .noticia-ajedrez .tag {
+      display: inline-block;
+      background: #f1c40f;
+      color: #1a5276;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+    }
+    .noticia-ajedrez h4 { color: #1a5276; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .noticia-ajedrez p { font-size: 0.95rem; color: #555; margin-bottom: 1rem; }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .video-container video {
+      width: 100%;
+      display: block;
+      max-height: 500px;
+      object-fit: contain;
+    }
+
+    .galeria-ajedrez {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .galeria-ajedrez img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .galeria-ajedrez img:hover { transform: scale(1.03); }
+
+    /* ===== CONTACTO ===== */
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .contacto-info h4 { color: #1a5276; margin-bottom: 1rem; }
+    .contacto-info p { margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .contacto-info a { color: #2980b9; }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 0.3rem; font-size: 0.9rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2980b9;
+      box-shadow: 0 0 0 3px rgba(41,128,185,0.15);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .btn-submit {
+      background: #1a5276;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #2980b9; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1a5276;
+      color: #fff;
+      padding: 2.5rem 1.5rem 1rem;
+    }
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-col h4 { color: #f1c40f; margin-bottom: 0.75rem; font-size: 1rem; }
+    .footer-col ul li { margin-bottom: 0.4rem; }
+    .footer-col a { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+    .footer-col a:hover { color: #f1c40f; text-decoration: none; }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .header-inner { flex-direction: column; text-align: center; }
+      nav ul { justify-content: center; }
+      .hero h2 { font-size: 1.5rem; }
+      .section-title { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <div class="header-inner">
+      <div class="header-brand">
+        <div>
+          <h1>Escuela Secundaria General 21 de Noviembre</h1>
+          <small>Esquipulas, Xoxocotlán · Oaxaca</small>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#talleres">Talleres</a></li>
+          <li><a href="#vida-estudiantil">Vida estudiantil</a></li>
+          <li><a href="#info-practica">Información práctica</a></li>
+          <li><a href="#noticias">Recursos y noticias</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-social">
+        <a href="https://www.facebook.com/profile.php?id=61572067992651&locale=es_LA" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="inicio">
+    <h2>Escuela Secundaria General 21 de Noviembre</h2>
+    <p class="lema">Ciencia y Virtud</p>
+    <p>Formamos adolescentes con pensamiento crítico, habilidades técnicas y valores firmes, para que lleguen preparados al bachillerato y a la vida en comunidad.</p>
+    <div class="hero-buttons">
+      <a href="#inscripcion" class="btn btn-primary">Inscripciones y requisitos</a>
+      <a href="#horarios" class="btn btn-outline">Calendario y horarios</a>
+    </div>
+  </section>
+
+  <!-- ==================== MISIÓN / VISIÓN / FILOSOFÍA ==================== -->
+  <section class="bg-light" id="mision">
+    <div class="container">
+      <h2 class="section-title">Lo que nos guía</h2>
+      <p class="section-subtitle">Misión, visión y filosofía institucional</p>
+      <p style="margin-bottom:2rem;">Tres ideas sostienen el trabajo diario de la comunidad escolar 21 de Noviembre.</p>
+      <div class="mvf-grid">
+        <div class="mvf-card">
+          <h3>Misión</h3>
+          <p>Brindar a las y los adolescentes de Esquipulas y sus comunidades vecinas una educación secundaria integral, que fortalezca el conocimiento científico, las habilidades técnicas de nuestros talleres y los valores humanos, formando personas responsables, capaces de continuar su trayecto académico y de contribuir a su comunidad.</p>
+        </div>
+        <div class="mvf-card">
+          <h3>Visión</h3>
+          <p>Ser una escuela secundaria general reconocida en la región de Xoxocotlán por la calidad de su formación académica y humana: un espacio seguro e incluyente donde la ciencia y la virtud preparan a cada estudiante para enfrentar con éxito el bachillerato y los retos de la vida.</p>
+        </div>
+        <div class="mvf-card">
+          <h3>Filosofía institucional</h3>
+          <p>Nuestro lema, <strong>Ciencia y Virtud</strong>, resume la convicción de que el rigor académico solo tiene sentido cuando va acompañado de integridad y compromiso con los demás.</p>
+          <div class="valores-list">
+            <span>Respeto</span>
+            <span>Responsabilidad</span>
+            <span>Honestidad</span>
+            <span>Trabajo en equipo</span>
+            <span>Compromiso comunitario</span>
+            <span>Superación constante</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== QUIÉNES SOMOS ==================== -->
+  <section class="bg-white" id="quienes-somos">
+    <div class="container">
+      <h2 class="section-title">Comunidad 21 de Noviembre</h2>
+      <p class="section-subtitle">Quiénes somos</p>
+      <p style="margin-bottom:2rem;">Una escuela secundaria general pública que atiende a las familias de Esquipulas y la zona de Xoxocotlán, con un modelo formativo centrado en la ciencia y la virtud.</p>
+
+      <div class="quienes-grid">
+        <div class="quienes-card">
+          <h4>Nuestra historia</h4>
+          <p>La Escuela Secundaria General 21 de Noviembre nació del interés de las familias de Esquipulas, Xoxocotlán, por contar con un espacio propio de educación secundaria, cercano a casa y con un modelo de talleres orientado al trabajo. Desde entonces, la comunidad escolar —docentes, madres y padres de familia, y estudiantes— ha sostenido un proyecto educativo basado en el estudio riguroso y en la formación de carácter, tal como lo expresa el lema del escudo: Ciencia y Virtud.</p>
+          <p style="margin-top:0.75rem;">Con el paso de los años, la escuela ha ampliado su oferta de talleres técnicos y ha fortalecido su vida extraescolar, integrando actividades cívicas y deportivas que llevan el nombre de la institución a los eventos de la zona escolar.</p>
+        </div>
+        <div class="quienes-card">
+          <h4>Logros y reconocimientos</h4>
+          <ul style="list-style:disc; padding-left:1.25rem; color:#555; font-size:0.95rem;">
+            <li>Participación constante en los eventos deportivos de la zona escolar, en basquetbol, futbol 7 y voleibol.</li>
+            <li>Banda de Guerra representativa, presente en los desfiles y actos cívicos de la comunidad.</li>
+            <li>Talleres técnicos que preparan a las y los estudiantes con habilidades aplicables desde la secundaria.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">4</div>
+          <div class="label">Talleres técnicos: informática, ofimática, circuitos eléctricos y turismo</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">3</div>
+          <div class="label">Disciplinas deportivas de zona: basquetbol, futbol 7 y voleibol</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">1</div>
+          <div class="label">Banda de Guerra representativa de la institución</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">21</div>
+          <div class="label">de noviembre, la fecha que da nombre a nuestra escuela</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:3rem; margin-bottom:1rem; color:#1a5276;">Dirección</h3>
+      <div class="directorio-grid">
+        <div class="directorio-card">
+          <h4>Dirección escolar</h4>
+          <p>Conduce el proyecto educativo de la institución y representa a la escuela ante la comunidad y las autoridades.</p>
+        </div>
+        <div class="directorio-card">
+          <h4>Subdirección académica</h4>
+          <p>Coordinación pedagógica. Da seguimiento al trabajo docente, a la evaluación y al desempeño académico de los tres grados.</p>
+        </div>
+        <div class="directorio-card">
+          <h4>Coordinación de talleres</h4>
+          <p>Educación tecnológica. Organiza informática, ofimática, circuitos eléctricos y turismo, y su vínculo con el trabajo por proyectos.</p>
+        </div>
+        <div class="directorio-card">
+          <h4>Actividades cívicas y deportivas</h4>
+          <p>Banda de Guerra y deportes. Coordina los ensayos de la Banda de Guerra y la preparación de los equipos que representan a la escuela en la zona escolar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIOS ==================== -->
+  <section class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Lo que dice nuestra comunidad</h2>
+      <div class="testimonios-slider">
+        <div class="testimonio">
+          <blockquote>"Mi hijo entró al taller de circuitos eléctricos sin saber nada y ahora arma sus propios proyectos en casa. Se nota el interés de los maestros."</blockquote>
+          <cite>— Madre de familia, 2° grado</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"Estar en la Banda de Guerra me enseñó disciplina y trabajo en equipo. Salir a representar a la escuela en los desfiles es algo que no olvido."</blockquote>
+          <cite>— Egresado, generación reciente</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"Me gusta que aquí los profesores exigen, pero también apoyan. En el equipo de voleibol aprendí a organizarme entre la escuela y los entrenamientos."</blockquote>
+          <cite>— Alumna, 3er grado</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"Ver cómo un estudiante que le temía a las matemáticas termina explicándole un problema a sus compañeros es la razón por la que enseño aquí."</blockquote>
+          <cite>— Profesor(a) de Matemáticas</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"En el taller no solo aprenden a usar la computadora: aprenden a resolver problemas paso a paso. Eso se les queda para toda la vida."</blockquote>
+          <cite>— Profesor(a) de Informática</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"Cuando un alumno que apenas leía en primer grado termina escribiendo su propio cuento en tercero, ahí se nota el trabajo de tres años."</blockquote>
+          <cite>— Profesor(a) de Español</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"Me gusta que en los experimentos hasta el estudiante más callado hace preguntas. La curiosidad no distingue calificaciones."</blockquote>
+          <cite>— Profesor(a) de Ciencias</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"Les enseño que entender el pasado de Oaxaca y de México les ayuda a entender quiénes son ellos mismos."</blockquote>
+          <cite>— Profesor(a) de Historia</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"Cuando salimos a observar las plantas del patio, los alumnos empiezan a ver la escuela distinto: como un lugar vivo."</blockquote>
+          <cite>— Profesor(a) de Biología</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"Aquí no solo hablamos de valores, los practicamos: en la Banda de Guerra, en los deportes, en cómo se tratan entre ellos."</blockquote>
+          <cite>— Profesor(a) de Formación Cívica y Ética</cite>
+        </div>
+        <div class="testimonio">
+          <blockquote>"Verlos perder el miedo a hablar en inglés, aunque se equivoquen, es el avance más grande que puedo pedir."</blockquote>
+          <cite>— Profesor(a) de Inglés</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TALLERES ==================== -->
+  <section class="bg-white" id="talleres">
+    <div class="container">
+      <h2 class="section-title">Educación tecnológica</h2>
+      <p class="section-subtitle">Talleres</p>
+      <p style="margin-bottom:2rem;">Desde el primer grado, cada estudiante cursa uno de nuestros cuatro talleres técnicos, pensados para desarrollar habilidades prácticas junto con la formación académica.</p>
+      <div class="talleres-grid">
+        <div class="taller-card">
+          <div class="icon">💻</div>
+          <h4>Informática</h4>
+          <p>Uso de equipo de cómputo, fundamentos de programación y herramientas digitales aplicadas a proyectos escolares.</p>
+        </div>
+        <div class="taller-card">
+          <div class="icon">📊</div>
+          <h4>Ofimática</h4>
+          <p>Manejo de procesadores de texto, hojas de cálculo y presentaciones para el trabajo escolar y administrativo.</p>
+        </div>
+        <div class="taller-card">
+          <div class="icon">⚡</div>
+          <h4>Circuitos eléctricos</h4>
+          <p>Principios de electricidad, armado de circuitos y prácticas de seguridad en instalaciones básicas.</p>
+        </div>
+        <div class="taller-card">
+          <div class="icon">🏛️</div>
+          <h4>Turismo</h4>
+          <p>Conocimiento del patrimonio cultural y natural de Oaxaca, y nociones de atención a visitantes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VIDA ESTUDIANTIL ==================== -->
+  <section class="bg-light" id="vida-estudiantil">
+    <div class="container">
+      <h2 class="section-title">Fuera del salón de clases</h2>
+      <p class="section-subtitle">Vida estudiantil y actividades extraescolares</p>
+      <p style="margin-bottom:2rem;">La formación en la 21 de Noviembre continúa después de clases, con disciplina, trabajo en equipo y orgullo por representar a la escuela.</p>
+      <div class="vida-grid">
+        <div class="vida-card">
+          <div class="icon">🥁</div>
+          <h4>Banda de Guerra</h4>
+          <p>Nuestra Banda de Guerra representa a la escuela en desfiles y actos cívicos, y es un espacio donde las y los estudiantes desarrollan disciplina, orden y trabajo en equipo.</p>
+        </div>
+        <div class="vida-card">
+          <div class="icon">🏀</div>
+          <h4>Basquetbol</h4>
+          <p>Equipo escolar que compite en los torneos de la zona.</p>
+        </div>
+        <div class="vida-card">
+          <div class="icon">⚽</div>
+          <h4>Futbol 7</h4>
+          <p>Entrenamientos y participación en el calendario deportivo escolar.</p>
+        </div>
+        <div class="vida-card">
+          <div class="icon">🏐</div>
+          <h4>Voleibol</h4>
+          <p>Selección femenil y varonil que representa a la institución.</p>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem; text-align:center; color:#666; font-size:0.95rem;">Nuestros equipos participan en los eventos deportivos de zona escolar en las tres disciplinas.</p>
+    </div>
+  </section>
+
+  <!-- ==================== INFORMACIÓN PRÁCTICA ==================== -->
+  <section class="bg-white" id="info-practica">
+    <div class="container">
+      <h2 class="section-title">Para madres, padres y estudiantes</h2>
+      <p class="section-subtitle">Información práctica</p>
+      <p style="margin-bottom:2rem;">Horarios, requisitos de inscripción y documentos que necesitas para el ciclo escolar.</p>
+
+      <h3 style="color:#1a5276; margin-bottom:1rem;">Turno Matutino / Turno Mixto</h3>
+      <table class="tabla-horarios" id="horarios">
+        <thead>
+          <tr>
+            <th>Actividad</th>
+            <th>Turno Matutino</th>
+            <th>Turno Mixto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Entrada</td>
+            <td>7:00 a.m.</td>
+            <td>8:40 a.m.</td>
+          </tr>
+          <tr>
+            <td>Receso</td>
+            <td>10:20 a.m. – 10:50 a.m. (ambos turnos)</td>
+            <td>10:20 a.m. – 10:50 a.m. (ambos turnos)</td>
+          </tr>
+          <tr>
+            <td>Salida</td>
+            <td>1:20 p.m.</td>
+            <td>3:00 p.m.</td>
+          </tr>
+          <tr>
+            <td>Ensayos Banda de Guerra / deportes</td>
+            <td>Según calendario, en horario extraclase</td>
+            <td>Según calendario, en horario extraclase</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin:1.5rem 0; font-size:0.95rem; color:#555;">La educación en esta escuela pública es gratuita. La Sociedad de Padres de Familia define, cada ciclo escolar, una cuota de cooperación voluntaria para el mantenimiento de las instalaciones.</p>
+
+      <h3 style="color:#1a5276; margin:2rem 0 1rem;" id="inscripcion">Requisitos de inscripción</h3>
+      <ul class="requisitos-list">
+        <li>Acta de nacimiento original y copia</li>
+        <li>CURP actualizada</li>
+        <li>Certificado de educación primaria</li>
+        <li>Comprobante de domicilio reciente</li>
+        <li>Cuatro fotografías tamaño infantil</li>
+        <li>Certificado médico vigente</li>
+      </ul>
+
+      <h3 style="color:#1a5276; margin:2rem 0 1rem;">Documentos descargables</h3>
+      <div class="docs-list">
+        <div class="doc-item">
+          <span class="icon">📄</span>
+          <span>Acuerdos de convivencia — PDF · próximamente</span>
+        </div>
+        <div class="doc-item">
+          <span class="icon">📄</span>
+          <span>Calendario escolar — PDF · próximamente</span>
+        </div>
+        <div class="doc-item">
+          <span class="icon">📄</span>
+          <span>Lista de útiles y material de talleres — PDF · próximamente</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NOTICIAS Y RECURSOS ==================== -->
+  <section class="bg-light" id="noticias">
+    <div class="container">
+      <h2 class="section-title">Al día</h2>
+      <p class="section-subtitle">Recursos y noticias</p>
+      <p style="margin-bottom:2rem;">Avisos, eventos y un adelanto de nuestras instalaciones. Para el detalle completo de cada evento, seguimos publicando en nuestra página de Facebook.</p>
+
+      <div class="noticias-grid">
+
+        <!-- ============================================ -->
+        <!-- VIDEO AJEDREZ — AQUÍ SE COLOCA EL VIDEO      -->
+        <!-- ============================================ -->
+        <div class="noticia-ajedrez">
+          <div class="card-body">
+            <span class="tag">Academia de Matemáticas</span>
+            <h4>Nuevo proyecto de Ajedrez</h4>
+            <p>La Academia de Matemáticas impulsa el ajedrez como herramienta de pensamiento lógico.</p>
+
+            <!-- VIDEO -->
+            <div class="video-container">
+              <video controls preload="metadata" poster="img/ajedrez1.jpg">
+                <source src="img/ajedrez.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+              </video>
+            </div>
+
+            <!-- GALERÍA DE IMÁGENES -->
+            <div class="galeria-ajedrez">
+              <img src="img/ajedrez1.jpg" alt="Estudiantes jugando ajedrez en el salón de clases">
+              <img src="img/ajedrez2.jpg" alt="Alumnos concentrados en una partida de ajedrez">
+            </div>
+          </div>
+        </div>
+        <!-- ============================================ -->
+
+        <!-- Resto de noticias -->
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Navidad</span>
+            <h4>Manualidades navideñas</h4>
+            <p>Adornos y velas elaborados por los estudiantes para las fiestas decembrinas.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Día de Muertos</span>
+            <h4>Comparsa prehispánica</h4>
+            <p>Alumnos caracterizados con temática prehispánica en la celebración de Día de Muertos.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Día de Muertos</span>
+            <h4>Disfraces y catrinas</h4>
+            <p>Estudiantes y familias participando con catrinas y disfraces.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Día de Muertos</span>
+            <h4>Mojiganga por las calles</h4>
+            <p>La comunidad escolar salió con una mojiganga por las calles de Esquipulas.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Navidad</span>
+            <h4>Cartas navideñas</h4>
+            <p>Mensajes y tarjetas de Navidad elaborados por nuestros alumnos.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Navidad</span>
+            <h4>Adornos navideños</h4>
+            <p>Coronas y decoraciones hechas en clase para la temporada navideña.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Navidad</span>
+            <h4>Coronas navideñas</h4>
+            <p>Más adornos elaborados por los alumnos para decorar la escuela.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Club de Danza</span>
+            <h4>Ensayo de danza folklórica</h4>
+            <p>El Club de Danza durante una presentación en el patio escolar.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Club de Danza</span>
+            <h4>Presentación de danza folklórica</h4>
+            <p>Nuestros bailarines representando trajes típicos de distintas regiones.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Festivales</span>
+            <h4>Festival escolar</h4>
+            <p>Baile y convivencia durante uno de nuestros festivales.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Artes</span>
+            <h4>Exposición de Artes</h4>
+            <p>Retratos y pinturas elaborados por los estudiantes del taller de Artes.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Artes</span>
+            <h4>Exposición de Artes</h4>
+            <p>Pinturas y trabajos de investigación histórica de nuestros alumnos.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Artes</span>
+            <h4>Exposición de Artes</h4>
+            <p>Autorretratos y pinturas realizados en la clase de Artes.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Artes</span>
+            <h4>Exposición de Artes</h4>
+            <p>Retratos e ilustraciones creados por los estudiantes.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Actos cívicos</span>
+            <h4>Escolta y Banda de Guerra</h4>
+            <p>Nuestra escolta y Banda de Guerra en un acto cívico dentro del plantel.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Actos cívicos</span>
+            <h4>Honores a la Bandera</h4>
+            <p>La comunidad escolar reunida en la ceremonia semanal de Honores a la Bandera.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Capacitaciones</span>
+            <h4>Uso responsable de la tecnología</h4>
+            <p>Plática formativa sobre cómo el uso de dispositivos afecta la vida diaria.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Capacitaciones</span>
+            <h4>Las emociones y la mente</h4>
+            <p>Taller sobre inteligencia emocional impartido a nuestros estudiantes.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Capacitaciones</span>
+            <h4>Visita de la Casa Rodante IEEPO</h4>
+            <p>Asamblea general con autoridades educativas del estado de Oaxaca.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Capacitaciones</span>
+            <h4>Dinámicas de convivencia</h4>
+            <p>Actividad grupal como parte de nuestras jornadas formativas.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Ciclo escolar</span>
+            <h4>Inicio del ciclo escolar</h4>
+            <p>Fechas de inicio, entrega de listas y primeros días de clase.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Banda de Guerra</span>
+            <h4>Convocatoria a nuevos integrantes</h4>
+            <p>Abre inscripción para estudiantes interesados en participar.</p>
+          </div>
+        </div>
+        <div class="noticia-card">
+          <div class="card-body">
+            <span class="tag">Deportes</span>
+            <h4>Calendario de eventos de zona</h4>
+            <p>Fechas de basquetbol, futbol 7 y voleibol.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACTO ==================== -->
+  <section class="bg-white" id="contacto">
+    <div class="container">
+      <h2 class="section-title">Estamos cerca</h2>
+      <p class="section-subtitle">Contacto y ubicación</p>
+      <p style="margin-bottom:2rem;">Escríbenos por Facebook o completa el formulario y te responderemos a la brevedad.</p>
+
+      <div class="contacto-grid">
+        <div class="contacto-info">
+          <h4>Datos de contacto</h4>
+          <p><strong>Ubicación:</strong> Esquipulas, Xoxocotlán, Oaxaca, México</p>
+          <p><strong>Turno:</strong> Matutino, de lunes a viernes</p>
+          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61572067992651&locale=es_LA" target="_blank" rel="noopener">Escuela Secundaria General 21 de Noviembre</a></p>
+        </div>
+        <form onsubmit="event.preventDefault(); alert('Formulario de demostración: los mensajes no se envían todavía.');">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="rol">Eres</label>
+            <select id="rol" name="rol" required>
+              <option value="">Selecciona...</option>
+              <option>Madre / padre de familia</option>
+              <option>Estudiante</option>
+              <option>Egresado</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono (opcional)</label>
+            <input type="tel" id="telefono" name="telefono">
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Enviar mensaje</button>
+        </form>
+      </div>
+      <p style="margin-top:1.5rem; font-size:0.85rem; color:#888;">Formulario de demostración: los mensajes no se envían todavía. Puede conectarse a un correo real o a un servicio de formularios cuando la escuela lo indique.</p>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Escuela Secundaria General 21 de Noviembre</h4>
+        <p style="font-size:0.9rem; opacity:0.8;">Esquipulas, Xoxocotlán, Oaxaca · Ciencia y Virtud</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sitio</h4>
+        <ul>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#talleres">Talleres</a></li>
+          <li><a href="#vida-estudiantil">Vida estudiantil</a></li>
+          <li><a href="#info-practica">Información práctica</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Comunidad</h4>
+        <ul>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#inscripcion">Inscripciones</a></li>
+          <li><a href="#horarios">Horarios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/profile.php?id=61572067992651&locale=es_LA" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Escuela Secundaria General 21 de Noviembre — Esquipulas, Xoxocotlán, Oaxaca. Sitio institucional no oficial de la SEP.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+=======
 <section id="noticias">
   <div class="noticias-grid">
 
@@ -25,3 +1099,4 @@
     <!-- resto de noticias... -->
   </div>
 </section>
+>>>>>>> c717e29feeafd2d2bce7b886a9daf693ac11aa7f
