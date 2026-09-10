@@ -284,6 +284,15 @@
   .zona-note{grid-column:1 / -1;display:flex;align-items:center;gap:12px;color:var(--gold-bright);font-size:.9rem;font-weight:600;margin-top:4px;}
   .zona-note svg{width:20px;height:20px;flex:none;}
 
+  /* ============ banda de guerra: fotos ============ */
+  .banda-photos{display:grid;gap:16px;margin-top:22px;}
+  .banda-photo{margin:0;border-radius:12px;overflow:hidden;border:1px solid rgba(231,170,59,.35);}
+  .banda-photo img{width:100%;height:auto;display:block;transition:transform .5s var(--ease);}
+  .banda-photo:hover img{transform:scale(1.03);}
+  @media (min-width:700px){
+    .banda-photos{grid-template-columns:1fr 1fr;}
+  }
+
   /* ============ info practica ============ */
   .info-practica{background:var(--white);}
   .info-tabs-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:56px;}
@@ -745,6 +754,14 @@
         </div>
         <h3>Banda de Guerra</h3>
         <p>Nuestra Banda de Guerra representa a la escuela en desfiles y actos cívicos, y es un espacio donde las y los estudiantes desarrollan disciplina, orden y trabajo en equipo.</p>
+        <div class="banda-photos">
+          <figure class="banda-photo">
+            <img src="img/banda-guerra-1.jpg" alt="La Banda de Guerra en formación durante una presentación escolar" loading="lazy">
+          </figure>
+          <figure class="banda-photo">
+            <img src="img/banda-guerra-2.jpg" alt="Integrantes de la Banda de Guerra con tambores y trompetas" loading="lazy">
+          </figure>
+        </div>
       </div>
       <div class="deportes-grid">
         <div class="deporte-card">
