@@ -152,9 +152,10 @@
   .btn-navy:hover{background:var(--navy-deep);transform:translateY(-2px);}
 
   .hero-shield{position:relative;display:flex;justify-content:center;align-items:center;}
-  .shield-ring{position:absolute;width:280px;height:280px;border-radius:50%;border:1px solid rgba(231,170,59,.4);animation:pulseRing 3.6s ease-out infinite;}
-  .shield-ring.r2{animation-delay:1.8s;}
-  .hero-shield img{width:min(320px,78%);animation:bob 6s ease-in-out infinite;filter:drop-shadow(0 26px 40px rgba(0,0,0,.5));position:relative;}
+  .hero-shield-text{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px 10px;}
+  .hero-shield-text .hst-l1{font-family:'Inter',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--white);font-size:.92rem;opacity:.85;}
+  .hero-shield-text .hst-rule{width:40px;height:2px;background:var(--gold);margin:10px 0;}
+  .hero-shield-text .hst-l2{font-family:'Fraunces',serif;font-weight:700;color:var(--white);font-size:2.1rem;line-height:1.1;}
 
   .ribbon{width:100%;height:78px;position:relative;overflow:hidden;transform:scaleX(0);transform-origin:center;transition:transform .9s var(--ease);}
   .ribbon.in-view{transform:scaleX(1);}
@@ -213,11 +214,11 @@
   .testi-counter{font-size:.72rem;color:var(--gold-bright);font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums;}
   .carousel{position:relative;}
   .carousel-track{display:flex;transition:transform .55s var(--ease);}
-  .testi-slide{flex:0 0 100%;padding:0 3px;}
+  .testi-slide{flex:0 0 100%;padding:0 3px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
   .testi-card{
     position:relative;display:flex;gap:14px;align-items:flex-start;
     background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);
-    border-radius:12px;padding:19px 20px 16px;max-width:400px;overflow:hidden;
+    border-radius:12px;padding:19px 20px 16px;flex:1 1 360px;max-width:400px;min-width:260px;overflow:hidden;
     backdrop-filter:blur(2px);
   }
   .testi-mark{
@@ -353,9 +354,11 @@
   .momento-media.photo-pair video{width:50%;height:100%;object-fit:cover;flex:none;background:#000;}
   .video-grid{height:300px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:var(--navy-deep);}
   .video-grid-3{height:300px;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr;gap:3px;background:var(--navy-deep);}
+  .video-grid-2{height:300px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;gap:3px;background:var(--navy-deep);}
   .video-slot{position:relative;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;}
   .video-slot video{width:100%;height:100%;object-fit:contain;background:#000;}
   .video-grid-3 .video-slot video{object-fit:cover;}
+  .video-grid-2 .video-slot video,.video-grid-2 .video-slot img{object-fit:cover;width:100%;height:100%;}
   .video-slot.placeholder{background:linear-gradient(150deg,var(--navy),var(--navy-deep));color:var(--gold-bright);flex-direction:column;gap:6px;text-align:center;padding:6px;}
   .video-slot.placeholder svg{width:22px;height:22px;opacity:.85;}
   .video-slot.placeholder span{font-size:.68rem;font-weight:600;color:#B9CCE5;}
@@ -425,8 +428,7 @@
   @media (max-width:980px){
     .hero-inner{grid-template-columns:1fr;text-align:left;}
     .hero-shield{order:-1;margin-bottom:10px;}
-    .hero-shield img{width:180px;}
-    .shield-ring{width:200px;height:200px;}
+    .hero-shield-text .hst-l2{font-size:1.6rem;}
     .mvp-grid,.docs-grid{grid-template-columns:repeat(2,1fr);}
     .historia,.vida-layout,.info-tabs-grid,.contacto-grid{grid-template-columns:1fr;}
     .historia-art{position:static;}
@@ -496,9 +498,11 @@
       </div>
     </div>
     <div class="hero-shield rise rise-3">
-      <span class="shield-ring" aria-hidden="true"></span>
-      <span class="shield-ring r2" aria-hidden="true"></span>
-      <img src="img/escudo.png" alt="Escudo institucional E.S.G. 21 de Noviembre, Esquipulas — Ciencia y Virtud">
+      <div class="hero-shield-text">
+        <span class="hst-l1">Escuela Secundaria General</span>
+        <span class="hst-rule"></span>
+        <span class="hst-l2">21 de Noviembre</span>
+      </div>
     </div>
   </div>
 
@@ -617,7 +621,7 @@
     <div class="testimonios">
       <div class="testimonios-head">
         <h3>Lo que dice nuestra comunidad</h3>
-        <span class="testi-counter" id="testiCounter">01 / 13</span>
+        <span class="testi-counter" id="testiCounter">01 / 07</span>
       </div>
       <div class="carousel" id="testiCarousel">
         <div class="carousel-track" id="testiTrack">
@@ -630,8 +634,6 @@
                 <footer><span class="rule"></span><strong>Madre de familia, 2° grado</strong></footer>
               </div>
             </div>
-          </div>
-          <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
               <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v4H4z"/><path d="M4 4v16M20 4v16M8 20V8M12 20V8M16 20V8"/></svg></div>
@@ -650,8 +652,6 @@
                 <footer><span class="rule"></span><strong>Alumna, 3er grado</strong></footer>
               </div>
             </div>
-          </div>
-          <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
               <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
@@ -670,8 +670,6 @@
                 <footer><span class="rule"></span><strong>Papá de una egresada, generación 2021</strong></footer>
               </div>
             </div>
-          </div>
-          <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
               <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
@@ -690,8 +688,6 @@
                 <footer><span class="rule"></span><strong>Madre de familia, dos hijos egresados</strong></footer>
               </div>
             </div>
-          </div>
-          <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
               <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
@@ -710,8 +706,6 @@
                 <footer><span class="rule"></span><strong>Padre de familia, hijo egresado 2019</strong></footer>
               </div>
             </div>
-          </div>
-          <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
               <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
@@ -730,8 +724,6 @@
                 <footer><span class="rule"></span><strong>Madre de familia, hijo egresado 2021</strong></footer>
               </div>
             </div>
-          </div>
-          <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
               <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
@@ -777,22 +769,22 @@
     </div>
     <div class="h-carousel" id="talleresCarousel">
       <div class="taller-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <div class="icon-wrap"><img src="img/informatica.png" alt="Ícono de Informática"></div>
         <h3>Informática</h3>
         <p>Uso de equipo de cómputo, fundamentos de programación y herramientas digitales aplicadas a proyectos escolares.</p>
       </div>
       <div class="taller-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+        <div class="icon-wrap"><img src="img/offimatica.png" alt="Ícono de Ofimática"></div>
         <h3>Ofimática</h3>
         <p>Manejo de procesadores de texto, hojas de cálculo y presentaciones para el trabajo escolar y administrativo.</p>
       </div>
       <div class="taller-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div>
+        <div class="icon-wrap"><img src="img/circuito-electrico.png" alt="Ícono de Circuitos eléctricos"></div>
         <h3>Circuitos eléctricos</h3>
         <p>Principios de electricidad, armado de circuitos y prácticas de seguridad en instalaciones básicas.</p>
       </div>
       <div class="taller-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 6-6 2 2-6 6-2Z"/></svg></div>
+        <div class="icon-wrap"><img src="img/turismo.png" alt="Ícono de Turismo"></div>
         <h3>Turismo</h3>
         <p>Conocimiento del patrimonio cultural y natural de Oaxaca, y nociones de atención a visitantes.</p>
       </div>
@@ -1071,21 +1063,12 @@
         <div class="momento-body"><span class="momento-tag">Deportes</span><h4>Calendario de eventos de zona</h4><p>Fechas de basquetbol, futbol 7 y voleibol.</p></div>
       </div>
       <div class="momento-card">
-        <div class="momento-media video-grid">
+        <div class="momento-media video-grid-2">
           <div class="video-slot">
             <video src="img/ajedrez.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Video del proyecto de Ajedrez de la Academia de Matemáticas"></video>
           </div>
-          <div class="video-slot placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-            <span>Video próximamente</span>
-          </div>
-          <div class="video-slot placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-            <span>Video próximamente</span>
-          </div>
-          <div class="video-slot placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-            <span>Video próximamente</span>
+          <div class="video-slot">
+            <img src="img/ajedrez.jpg" alt="Estudiantes jugando ajedrez en la Academia de Matemáticas">
           </div>
         </div>
         <div class="momento-body"><span class="momento-tag">Academia de Matemáticas</span><h4>Nuevo proyecto de Ajedrez</h4><p>La Academia de Matemáticas impulsa el ajedrez como herramienta de pensamiento lógico.</p></div>
