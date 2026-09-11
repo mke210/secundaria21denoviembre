@@ -197,10 +197,10 @@
   .team-card p{font-size:.92rem;margin:0;}
 
   /* ============ testimonios carousel ============ */
-  .testimonios{margin-top:60px;background:
+  .testimonios{margin-top:30px;background:
       radial-gradient(700px 300px at 85% -10%, rgba(79,166,224,.18), transparent 65%),
       linear-gradient(160deg,var(--navy),var(--navy-deep));
-    border-radius:20px;padding:48px 44px 40px;color:var(--white);position:relative;overflow:hidden;
+    border-radius:14px;padding:24px 22px 20px;color:var(--white);position:relative;overflow:hidden;
     border:1px solid rgba(231,170,59,.25);
   }
   .testimonios::before{
@@ -208,44 +208,44 @@
     background-image:radial-gradient(rgba(231,170,59,.35) 1px, transparent 1.4px);
     background-size:26px 26px;opacity:.12;
   }
-  .testimonios-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px;position:relative;flex-wrap:wrap;}
-  .testimonios-head h3{color:var(--white);margin:0;}
-  .testi-counter{font-size:.82rem;color:var(--gold-bright);font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums;}
+  .testimonios-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px;position:relative;flex-wrap:wrap;}
+  .testimonios-head h3{color:var(--white);margin:0;font-size:1.15rem;}
+  .testi-counter{font-size:.72rem;color:var(--gold-bright);font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums;}
   .carousel{position:relative;}
   .carousel-track{display:flex;transition:transform .55s var(--ease);}
-  .testi-slide{flex:0 0 100%;padding:0 4px;}
+  .testi-slide{flex:0 0 100%;padding:0 3px;}
   .testi-card{
-    position:relative;display:flex;gap:24px;align-items:flex-start;
+    position:relative;display:flex;gap:14px;align-items:flex-start;
     background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);
-    border-radius:16px;padding:38px 40px 32px;max-width:680px;overflow:hidden;
+    border-radius:12px;padding:19px 20px 16px;max-width:400px;overflow:hidden;
     backdrop-filter:blur(2px);
   }
   .testi-mark{
-    position:absolute;top:-22px;left:18px;font-family:'Fraunces',serif;font-weight:700;
-    font-size:6.2rem;color:rgba(231,170,59,.22);line-height:1;pointer-events:none;user-select:none;
+    position:absolute;top:-11px;left:10px;font-family:'Fraunces',serif;font-weight:700;
+    font-size:3.1rem;color:rgba(231,170,59,.22);line-height:1;pointer-events:none;user-select:none;
   }
   .testi-avatar{
-    position:relative;flex:none;width:54px;height:54px;border-radius:50%;
+    position:relative;flex:none;width:32px;height:32px;border-radius:50%;
     background:linear-gradient(155deg,var(--gold-bright),var(--gold-deep));
     display:flex;align-items:center;justify-content:center;color:var(--navy-deep);
-    box-shadow:0 8px 18px rgba(0,0,0,.3);
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
   }
-  .testi-avatar svg{width:24px;height:24px;}
+  .testi-avatar svg{width:15px;height:15px;}
   .testi-content{position:relative;min-width:0;}
-  .testi-content p{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:#EEF4FC;font-size:1.14rem;line-height:1.56;margin:0 0 16px;}
-  .testi-content footer{font-style:normal;display:flex;align-items:center;gap:10px;}
-  .testi-content footer .rule{width:22px;height:2px;background:var(--gold);flex:none;}
-  .testi-content footer strong{color:var(--gold-bright);font-size:.9rem;font-weight:700;}
-  .carousel-controls{display:flex;align-items:center;gap:18px;margin-top:28px;position:relative;}
-  .car-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:var(--white);display:flex;align-items:center;justify-content:center;transition:background .2s ease,transform .2s var(--ease);flex:none;}
+  .testi-content p{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:#EEF4FC;font-size:.92rem;line-height:1.48;margin:0 0 10px;}
+  .testi-content footer{font-style:normal;display:flex;align-items:center;gap:8px;}
+  .testi-content footer .rule{width:16px;height:2px;background:var(--gold);flex:none;}
+  .testi-content footer strong{color:var(--gold-bright);font-size:.76rem;font-weight:700;}
+  .carousel-controls{display:flex;align-items:center;gap:12px;margin-top:14px;position:relative;}
+  .car-btn{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:var(--white);display:flex;align-items:center;justify-content:center;transition:background .2s ease,transform .2s var(--ease);flex:none;}
   .car-btn:hover{background:rgba(255,255,255,.12);transform:scale(1.06);}
-  .car-btn svg{width:18px;height:18px;}
-  .dots{display:flex;gap:9px;}
-  .dots button{width:9px;height:9px;border-radius:50%;border:0;background:rgba(255,255,255,.3);padding:0;transition:background .2s ease,transform .2s ease;}
+  .car-btn svg{width:14px;height:14px;}
+  .dots{display:flex;gap:7px;}
+  .dots button{width:7px;height:7px;border-radius:50%;border:0;background:rgba(255,255,255,.3);padding:0;transition:background .2s ease,transform .2s ease;}
   .dots button.active{background:var(--gold-bright);transform:scale(1.25);}
   @media (max-width:600px){
-    .testi-card{flex-direction:column;padding:34px 26px 28px;gap:16px;}
-    .testimonios{padding:36px 24px 32px;}
+    .testi-card{flex-direction:column;padding:17px 16px 14px;gap:10px;}
+    .testimonios{padding:18px 14px 16px;}
   }
 
   /* ============ talleres carousel ============ */
@@ -617,7 +617,7 @@
     <div class="testimonios">
       <div class="testimonios-head">
         <h3>Lo que dice nuestra comunidad</h3>
-        <span class="testi-counter" id="testiCounter">01 / 11</span>
+        <span class="testi-counter" id="testiCounter">01 / 13</span>
       </div>
       <div class="carousel" id="testiCarousel">
         <div class="carousel-track" id="testiTrack">
@@ -654,80 +654,100 @@
           <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 22h16L12 2Z"/><path d="M9 16h6"/></svg></div>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
               <div class="testi-content">
-                <p>Ver cómo un estudiante que le temía a las matemáticas termina explicándole un problema a sus compañeros es la razón por la que enseño aquí.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Matemáticas</strong></footer>
+                <p>Mi'jo egresó hace tres años y hasta la fecha me sigue platicando de lo que aprendió en el taller de circuitos. La neta, salió bien preparado para la prepa.</p>
+                <footer><span class="rule"></span><strong>Mamá de un egresado, generación 2022</strong></footer>
               </div>
             </div>
           </div>
           <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
               <div class="testi-content">
-                <p>En el taller no solo aprenden a usar la computadora: aprenden a resolver problemas paso a paso. Eso se les queda para toda la vida.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Informática</strong></footer>
+                <p>A mi hija le costaba trabajo hablar en público y aquí, entre los actos cívicos y la Banda de Guerra, le agarró el modo. Hoy ya no se me achica para nada.</p>
+                <footer><span class="rule"></span><strong>Papá de una egresada, generación 2021</strong></footer>
               </div>
             </div>
           </div>
           <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
               <div class="testi-content">
-                <p>Cuando un alumno que apenas leía en primer grado termina escribiendo su propio cuento en tercero, ahí se nota el trabajo de tres años.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Español</strong></footer>
+                <p>Le doy gracias a la escuela porque a mi hijo lo trataron como persona, no nada más como número de lista. Eso se agradece un buen.</p>
+                <footer><span class="rule"></span><strong>Madre de familia, hijo egresado 2020</strong></footer>
               </div>
             </div>
           </div>
           <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v6L4 20a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3L15 8V2"/><path d="M9 2h6"/><path d="M6.5 15h11"/></svg></div>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
               <div class="testi-content">
-                <p>Me gusta que en los experimentos hasta el estudiante más callado hace preguntas. La curiosidad no distingue calificaciones.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Ciencias</strong></footer>
+                <p>Mis dos hijos salieron de esta secundaria y a los dos les fue bien en la prepa porque aquí sí les exigen parejo. Se nota que los maestros están al pendiente.</p>
+                <footer><span class="rule"></span><strong>Madre de familia, dos hijos egresados</strong></footer>
               </div>
             </div>
           </div>
           <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
               <div class="testi-content">
-                <p>Les enseño que entender el pasado de Oaxaca y de México les ayuda a entender quiénes son ellos mismos.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Historia</strong></footer>
+                <p>Cuando mi hija entró al equipo de voleibol pensé que iba a descuidar la escuela, pero al contrario, se organizó mejor. Terminó la secu con puro 9 y 10.</p>
+                <footer><span class="rule"></span><strong>Papá de familia, generación 2023</strong></footer>
               </div>
             </div>
           </div>
           <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c-4 3-7 8-7 13a7 7 0 0 0 14 0c0-5-3-10-7-13Zm0 3.4L14.6 9l-2.6 2.6L9.4 9 12 5.4Z"/></svg></div>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
               <div class="testi-content">
-                <p>Cuando salimos a observar las plantas del patio, los alumnos empiezan a ver la escuela distinto: como un lugar vivo.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Biología</strong></footer>
+                <p>Yo estudié en otra secundaria y la verdad envidio que mi hijo haya tenido talleres técnicos desde los doce años. Eso allá no se veía.</p>
+                <footer><span class="rule"></span><strong>Padre de familia, hijo egresado 2019</strong></footer>
               </div>
             </div>
           </div>
           <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.7 8 10 4.5-1.3 8-5 8-10V6l-8-4Z"/></svg></div>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
               <div class="testi-content">
-                <p>Aquí no solo hablamos de valores, los practicamos: en la Banda de Guerra, en los deportes, en cómo se tratan entre ellos.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Formación Cívica y Ética</strong></footer>
+                <p>Mi hija se graduó llorando porque no se quería ir de la escuela, así de a gusto estuvo ahí los tres años. Eso ya dice mucho.</p>
+                <footer><span class="rule"></span><strong>Mamá de una egresada, generación 2022</strong></footer>
               </div>
             </div>
           </div>
           <div class="testi-slide">
             <div class="testi-card">
               <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></div>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
               <div class="testi-content">
-                <p>Verlos perder el miedo a hablar en inglés, aunque se equivoquen, es el avance más grande que puedo pedir.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Inglés</strong></footer>
+                <p>Con la Banda de Guerra mi hijo aprendió a ser puntual y responsable, cosa que en la casa a veces cuesta trabajo enseñar. Se lo agradezco a sus instructores.</p>
+                <footer><span class="rule"></span><strong>Madre de familia, hijo egresado 2021</strong></footer>
+              </div>
+            </div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-card">
+              <span class="testi-mark" aria-hidden="true">&ldquo;</span>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
+              <div class="testi-content">
+                <p>Nunca tuve que batallar para que mi hija fuera a la escuela, siempre salía contenta. Ahora que está en la prepa la extraña un montón.</p>
+                <footer><span class="rule"></span><strong>Papá de familia, generación 2020</strong></footer>
+              </div>
+            </div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-card">
+              <span class="testi-mark" aria-hidden="true">&ldquo;</span>
+              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
+              <div class="testi-content">
+                <p>Lo que más me gustó fue que siempre hubo comunicación con nosotros los papás, nunca nos enteramos de nada a la mala. Eso da mucha confianza.</p>
+                <footer><span class="rule"></span><strong>Madre de familia, hija egresada 2023</strong></footer>
               </div>
             </div>
           </div>
@@ -837,7 +857,7 @@
           <h3>🎙️ Podcast 21</h3>
           <p>Nuestros alumnos también tienen voz: escucha aquí lo último transmitido desde la cabina del Podcast 21.</p>
         </div>
-        <a class="btn btn-gold" href="podcast/podcast.html" target="_blank" rel="noopener">🎧 Ver todos los episodios</a>
+        <a class="btn btn-gold" href="https://mke210.github.io/radio-21/" target="_blank" rel="noopener">🎧 Ver todos los episodios</a>
       </div>
 
       <div class="podcast21-widget">
@@ -1496,7 +1516,7 @@
 
   function setGif(activo) {
     if (!gif) return;
-    if (activo) { gif.src = "podcast/img/radio-anim.gif"; gif.classList.remove("oculto"); }
+    if (activo) { gif.src = "https://mke210.github.io/radio-21/img/radio-anim.webp"; gif.classList.remove("oculto"); }
     else { gif.classList.add("oculto"); gif.src = ""; }
   }
 
