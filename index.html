@@ -284,6 +284,50 @@
   .zona-note{grid-column:1 / -1;display:flex;align-items:center;gap:12px;color:var(--gold-bright);font-size:.9rem;font-weight:600;margin-top:4px;}
   .zona-note svg{width:20px;height:20px;flex:none;}
 
+  /* ============ tarjeta Podcast 21 (contenedor del widget) ============ */
+  .podcast-embed-card{margin-top:26px;background:linear-gradient(160deg,var(--navy),var(--navy-deep));border:1px solid rgba(231,170,59,.35);border-radius:var(--radius);padding:28px 30px;}
+  .podcast-embed-head{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:6px;}
+  .podcast-embed-head .icon-wrap{width:52px;height:52px;border-radius:13px;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;flex:none;}
+  .podcast-embed-head .icon-wrap svg{width:26px;height:26px;}
+  .podcast-embed-text{flex:1;min-width:220px;}
+  .podcast-embed-text h3{color:var(--white);font-size:1.22rem;margin:0 0 .2em;}
+  .podcast-embed-text p{color:#C9DCF0;margin:0;font-size:.94rem;}
+  .podcast-embed-card .btn{flex:none;}
+
+  /* ============ widget Podcast 21 (estilos propios, con sus propias variables — no tocan la paleta del sitio) ============ */
+  .podcast21-widget{
+    --bg:#0b1017; --surface:#121a24; --surface-2:#182230; --border:#223041;
+    --text:#e8eef5; --muted:#93a4b8; --gold:#e3b64f; --blue:#4f8fe3; --red:#e05252; --green:#4fb878;
+    margin-top:18px;
+  }
+  .podcast21-widget .player-home{max-width:800px;margin:0 auto;padding:0;}
+  .podcast21-widget .player-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;}
+  .podcast21-widget .player-minimal{max-width:none;margin:0;display:flex;align-items:center;gap:12px;background:transparent;border:none;border-radius:0;padding:0;}
+  .podcast21-widget .player-minimal audio{display:none;}
+  .podcast21-widget .pm-info{flex:1;min-width:0;display:flex;flex-direction:column;}
+  .podcast21-widget .pm-info strong{font-family:'Inter',sans-serif;font-size:13px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .podcast21-widget .pm-info .small{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .podcast21-widget .pm-center{width:80px;height:56px;display:flex;align-items:center;justify-content:center;flex:none;}
+  .podcast21-widget .pm-center .gif-home{width:80px;height:56px;max-width:none;object-fit:cover;border-radius:10px;box-shadow:0 0 14px rgba(227,182,79,.35);}
+  .podcast21-widget .pm-controls{display:flex;gap:6px;flex:none;}
+  .podcast21-widget .pm-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--surface-2);color:var(--text);cursor:pointer;font-size:13px;}
+  .podcast21-widget .pm-btn:hover:not(:disabled){border-color:var(--gold);}
+  .podcast21-widget .pm-btn:disabled{opacity:.4;cursor:not-allowed;}
+  .podcast21-widget #pmPlay{background:var(--gold);color:#141414;border-color:var(--gold);}
+  .podcast21-widget .pm-speaker{position:relative;display:inline-block;}
+  .podcast21-widget .pm-btn.vibrando{animation:p21vibrar .5s infinite;box-shadow:0 0 12px rgba(227,182,79,.8);border-color:var(--gold);}
+  .podcast21-widget .pm-aviso{position:absolute;bottom:calc(100% + 10px);right:-14px;background:linear-gradient(90deg,var(--gold),#ff9d00,#ff4136,var(--gold));background-size:300% 100%;animation:p21brillo 1.5s linear infinite,p21flotar 1s ease-in-out infinite;color:#141414;font-size:11px;font-weight:bold;padding:6px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 16px rgba(227,182,79,.6);pointer-events:none;z-index:5;}
+  .podcast21-widget .pm-aviso::after{content:"";position:absolute;top:100%;right:24px;border:6px solid transparent;border-top-color:var(--gold);}
+  .podcast21-widget .oculto{display:none;}
+  @keyframes p21vibrar{0%,100%{transform:rotate(0deg);}25%{transform:rotate(-12deg);}75%{transform:rotate(12deg);}}
+  @keyframes p21brillo{0%{background-position:0% 0;}100%{background-position:300% 0;}}
+  @keyframes p21flotar{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+  @media (max-width:600px){
+    .podcast21-widget .player-minimal{flex-wrap:wrap;justify-content:center;}
+    .podcast21-widget .pm-info{width:100%;order:3;text-align:center;}
+    .podcast-embed-card{padding:24px 20px;}
+  }
+
   /* ============ info practica ============ */
   .info-practica{background:var(--white);}
   .info-tabs-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:56px;}
@@ -782,6 +826,46 @@
         </div>
       </div>
     </div>
+
+    <!-- ============ PODCAST 21 (reproductor en vivo) ============ -->
+    <div class="podcast-embed-card">
+      <div class="podcast-embed-head">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>
+        </div>
+        <div class="podcast-embed-text">
+          <h3>🎙️ Podcast 21</h3>
+          <p>Nuestros alumnos también tienen voz: escucha aquí lo último transmitido desde la cabina del Podcast 21.</p>
+        </div>
+        <a class="btn btn-gold" href="podcast/podcast.html" target="_blank" rel="noopener">🎧 Ver todos los episodios</a>
+      </div>
+
+      <div class="podcast21-widget">
+        <section class="player-home">
+          <div class="player-card">
+            <div class="player-minimal">
+              <div class="pm-info">
+                <strong id="pmTitulo">Cargando contenido…</strong>
+                <span id="pmMeta" class="small"></span>
+              </div>
+              <div class="pm-center">
+                <img id="pmGif" src="" alt="Radio animada" class="gif-home oculto" />
+              </div>
+              <div class="pm-controls">
+                <button id="pmPrev" class="pm-btn" disabled>⏮</button>
+                <button id="pmPlay" class="pm-btn" disabled>▶</button>
+                <button id="pmNext" class="pm-btn" disabled>⏭</button>
+                <span class="pm-speaker">
+                  <button id="pmMute" class="pm-btn" disabled>🔇</button>
+                  <span id="pmAviso" class="pm-aviso oculto">¡Activa el audio! 🔊</span>
+                </span>
+              </div>
+            </div>
+            <audio id="pmAudio" loop muted autoplay controlslist="nodownload"></audio>
+          </div>
+        </section>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1252,6 +1336,193 @@
     momentosEl.addEventListener('mousedown', function(){ clearInterval(momentosTimer); });
     startMomentosAutoplay();
   }
+})();
+</script>
+
+<!-- ================= WIDGET PODCAST 21 (reproductor en vivo, mismo backend que el sitio del podcast) ================= -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function () {
+  "use strict";
+
+  // Config Supabase del proyecto Podcast 21 (clave pública "anon", segura para exponer en el cliente)
+  var SUPABASE_URL = "https://kcynhfufhrkbuleapfro.supabase.co";
+  var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjeW5oZnVmaHJrYnVsZWFwZnJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5NzA3MjEsImV4cCI6MjEwMTU0NjcyMX0.49_qsBBjorhYMqovo2OBTRZ9BB_Wl-OdFS-MEjBJSOs";
+
+  if (!window.supabase) return;
+  var db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  var $ = function (id) { return document.getElementById(id); };
+  var audio = $("pmAudio");
+  if (!audio) return; // el widget no está en esta página
+
+  var titulo = $("pmTitulo");
+  var meta = $("pmMeta");
+  var btnPrev = $("pmPrev");
+  var btnPlay = $("pmPlay");
+  var btnNext = $("pmNext");
+  var btnMute = $("pmMute");
+  var aviso = $("pmAviso");
+  var gif = $("pmGif");
+
+  var todas = [];
+  var playlist = [];
+  var indice = 0;
+  var loopActivo = false;
+  var desbloqueoActivo = false;
+
+  cargar();
+
+  async function cargar() {
+    try {
+      var res = await Promise.all([
+        db.from("audios").select("*").eq("publicado", true).order("creado_en", { ascending: false }),
+        db.from("musica").select("*").order("creado_en", { ascending: false }),
+        db.from("config").select("*").eq("id", "player").maybeSingle()
+      ]);
+      var rAud = res[0], rMus = res[1], rCfg = res[2];
+
+      var episodios = rAud.data || [];
+      var musicas = rMus.data || [];
+
+      todas = musicas.map(function (m) { return Object.assign({}, m, { _tipo: "m" }); })
+        .concat(episodios.map(function (e) { return Object.assign({}, e, { _tipo: "e" }); }));
+
+      var cfg = rCfg.data;
+
+      playlist = (cfg && Array.isArray(cfg.sel) && cfg.sel.length)
+        ? cfg.sel.map(resolver).filter(Boolean)
+        : todas.slice();
+
+      if (!playlist.length) {
+        titulo.textContent = "Aún no hay contenido";
+        meta.textContent = "Muy pronto habrá episodios del Podcast 21 🎙️";
+        return;
+      }
+
+      loopActivo = !!(cfg && cfg.loop);
+
+      var idx = playlist.findIndex(function (p) { return (p._tipo + ":" + p.id) === (cfg && cfg.last); });
+      indice = idx >= 0 ? idx : 0;
+
+      btnPrev.disabled = false;
+      btnPlay.disabled = false;
+      btnNext.disabled = false;
+      btnMute.disabled = false;
+
+      audio.muted = true;
+      setGif(true);
+      setVibracion(true);
+      cargarPista(indice, true);
+    } catch (e) {
+      console.error(e);
+      titulo.textContent = "Error al cargar";
+      meta.textContent = e.message;
+    }
+  }
+
+  function resolver(valor) {
+    var tipo = valor.slice(0, 1);
+    var id = valor.slice(2);
+    return todas.find(function (x) { return x._tipo === tipo && x.id === id; }) || null;
+  }
+
+  function cargarPista(n, reproducir) {
+    indice = n;
+    var item = playlist[indice];
+    if (!item) return;
+    titulo.textContent = item.titulo;
+    meta.textContent = item._tipo === "m"
+      ? "🎵 Música · Biblioteca Podcast 21"
+      : "🎤 " + (item.alumno || "Anónimo") + " · " + (item.categoria || "General");
+
+    audio.src = item.url;
+    if (reproducir) intentarReproduccion();
+    else btnPlay.textContent = "▶";
+  }
+
+  function intentarReproduccion() {
+    var prom = audio.play();
+    if (!prom) return;
+    prom
+      .then(function () { btnPlay.textContent = "⏸"; })
+      .catch(function () {
+        btnPlay.textContent = "▶";
+        reintentarCuandoListo();
+        prepararDesbloqueo();
+      });
+  }
+
+  function reintentarCuandoListo() {
+    audio.addEventListener("canplay", function h() {
+      audio.removeEventListener("canplay", h);
+      audio.play().then(function () { btnPlay.textContent = "⏸"; }).catch(function () {});
+    });
+  }
+
+  function prepararDesbloqueo() {
+    if (desbloqueoActivo) return;
+    desbloqueoActivo = true;
+    var fn = function () {
+      window.removeEventListener("pointerdown", fn);
+      window.removeEventListener("keydown", fn);
+      desbloqueoActivo = false;
+      audio.play().then(function () { btnPlay.textContent = "⏸"; }).catch(function () {});
+    };
+    window.addEventListener("pointerdown", fn);
+    window.addEventListener("keydown", fn);
+  }
+
+  function siguiente() {
+    if (!playlist.length) return;
+    if (loopActivo) {
+      indice = (indice + 1) % playlist.length;
+      cargarPista(indice, true);
+    } else if (indice < playlist.length - 1) {
+      indice++;
+      cargarPista(indice, true);
+    } else {
+      btnPlay.textContent = "▶";
+    }
+  }
+
+  function anterior() {
+    if (!playlist.length) return;
+    if (indice > 0) {
+      indice--;
+      cargarPista(indice, !audio.paused);
+    }
+  }
+
+  function setGif(activo) {
+    if (!gif) return;
+    if (activo) { gif.src = "podcast/img/radio-anim.gif"; gif.classList.remove("oculto"); }
+    else { gif.classList.add("oculto"); gif.src = ""; }
+  }
+
+  function setVibracion(activo) {
+    if (activo) { btnMute.classList.add("vibrando"); aviso.classList.remove("oculto"); }
+    else { btnMute.classList.remove("vibrando"); aviso.classList.add("oculto"); }
+  }
+
+  btnPrev.addEventListener("click", anterior);
+
+  btnPlay.addEventListener("click", function () {
+    if (audio.paused) audio.play().then(function () { btnPlay.textContent = "⏸"; }).catch(function () {});
+    else { audio.pause(); btnPlay.textContent = "▶"; }
+  });
+
+  btnNext.addEventListener("click", siguiente);
+
+  btnMute.addEventListener("click", function () {
+    audio.muted = !audio.muted;
+    btnMute.textContent = audio.muted ? "🔇" : "🔊";
+    setVibracion(audio.muted);
+  });
+
+  audio.addEventListener("play", function () { btnPlay.textContent = "⏸"; setGif(true); });
+  audio.addEventListener("pause", function () { btnPlay.textContent = "▶"; });
+  audio.addEventListener("ended", siguiente);
 })();
 </script>
 </body>
