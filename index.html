@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Escuela Secundaria General 21 de Noviembre — Esquipulas, Xoxocotlán, Oaxaca</title>
 <meta name="description" content="Escuela Secundaria General 21 de Noviembre, Esquipulas, Xoxocotlán, Oaxaca. Ciencia y Virtud.">
-<link rel="icon" type="image/png" href="escudo.png">
+<link rel="icon" href="img/escudo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -49,10 +49,12 @@
   .kicker-line svg{width:18px;height:18px;flex:none;}
   :focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
 
+  /* reduced motion kill-switch */
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
   }
 
+  /* ============ reveal-on-load (hero, one orchestrated sequence) ============ */
   @keyframes riseIn{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
   .rise{opacity:0;animation:riseIn .8s var(--ease) forwards;}
   .rise-1{animation-delay:.05s;} .rise-2{animation-delay:.18s;} .rise-3{animation-delay:.30s;}
@@ -66,6 +68,7 @@
   @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
   @keyframes pulseRing{0%{transform:scale(.9);opacity:.6;}100%{transform:scale(1.6);opacity:0;}}
 
+  /* ============ header ============ */
   header{
     position:sticky;top:0;z-index:200;background:rgba(11,45,87,.92);
     backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
@@ -82,13 +85,22 @@
   .brand-text strong{font-family:'Fraunces',serif;font-size:1.02rem;font-weight:600;}
   .brand-text span{font-size:.7rem;color:var(--gold-bright);letter-spacing:.02em;}
   nav.primary-nav{display:flex;align-items:center;gap:26px;}
-  nav.primary-nav a{position:relative;color:#D7E6F7;text-decoration:none;font-size:.92rem;font-weight:500;padding:8px 1px;}
-  nav.primary-nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);}
+  nav.primary-nav a{
+    position:relative;color:#D7E6F7;text-decoration:none;font-size:.92rem;font-weight:500;padding:8px 1px;
+  }
+  nav.primary-nav a::after{
+    content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--gold);
+    transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);
+  }
   nav.primary-nav a:hover{color:var(--white);}
   nav.primary-nav a:hover::after{transform:scaleX(1);}
   nav.primary-nav a.active{color:var(--white);}
   nav.primary-nav a.active::after{transform:scaleX(1);}
-  .fb-link{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy-deep);padding:9px 16px;border-radius:999px;font-weight:700;font-size:.86rem;text-decoration:none;transition:background .2s ease, transform .2s var(--ease);}
+  .fb-link{
+    display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy-deep);
+    padding:9px 16px;border-radius:999px;font-weight:700;font-size:.86rem;text-decoration:none;
+    transition:background .2s ease, transform .2s var(--ease);
+  }
   .fb-link:hover{background:var(--gold-bright);transform:translateY(-1px);}
   .fb-link svg{width:15px;height:15px;}
   .menu-toggle{display:none;background:none;border:0;color:var(--white);padding:8px;}
@@ -96,7 +108,12 @@
   nav.primary-nav.open{display:flex;}
 
   @media (max-width:900px){
-    nav.primary-nav{position:absolute;top:100%;left:0;right:0;background:var(--navy-deep);flex-direction:column;align-items:flex-start;gap:0;padding:0 28px;border-bottom:1px solid rgba(231,170,59,.35);max-height:0;overflow:hidden;transition:max-height .35s var(--ease),padding .35s var(--ease);}
+    nav.primary-nav{
+      position:absolute;top:100%;left:0;right:0;background:var(--navy-deep);
+      flex-direction:column;align-items:flex-start;gap:0;padding:0 28px;
+      border-bottom:1px solid rgba(231,170,59,.35);
+      max-height:0;overflow:hidden;transition:max-height .35s var(--ease),padding .35s var(--ease);
+    }
     nav.primary-nav.open{max-height:520px;padding:10px 28px 24px;}
     nav.primary-nav a{width:100%;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);}
     nav.primary-nav a::after{display:none;}
@@ -104,12 +121,20 @@
     .menu-toggle{display:inline-flex;}
   }
 
-  .hero{position:relative;overflow:hidden;background:linear-gradient(165deg,var(--navy-deep),var(--navy) 68%);color:var(--white);padding:84px 0 0;}
+  /* ============ hero ============ */
+  .hero{
+    position:relative;overflow:hidden;background:linear-gradient(165deg,var(--navy-deep),var(--navy) 68%);
+    color:var(--white);padding:84px 0 0;
+  }
   .hero .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;pointer-events:none;}
   .hero .blob-1{width:520px;height:520px;background:radial-gradient(circle,var(--sky),transparent 70%);top:-160px;right:-120px;animation:drift1 16s ease-in-out infinite;}
   .hero .blob-2{width:420px;height:420px;background:radial-gradient(circle,var(--gold),transparent 70%);bottom:-160px;left:-100px;animation:drift2 20s ease-in-out infinite;}
   .hero-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
-  .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(231,170,59,.15);border:1px solid rgba(231,170,59,.4);color:var(--gold-bright);padding:7px 15px;border-radius:999px;font-size:.82rem;font-weight:600;margin-bottom:22px;}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;background:rgba(231,170,59,.15);
+    border:1px solid rgba(231,170,59,.4);color:var(--gold-bright);padding:7px 15px;border-radius:999px;
+    font-size:.82rem;font-weight:600;margin-bottom:22px;
+  }
   .hero h1{color:var(--white);font-size:clamp(2.3rem,4.6vw,3.4rem);max-width:11.5ch;letter-spacing:-.01em;}
   .hero .location{color:#C9DCF0;font-size:1.05rem;margin-bottom:22px;display:flex;gap:8px;align-items:center;}
   .hero .location svg{width:18px;height:18px;flex:none;color:var(--gold-bright);}
@@ -135,12 +160,14 @@
   .ribbon.in-view{transform:scaleX(1);}
   .ribbon svg{width:100%;height:100%;display:block;}
 
+  /* ============ ambient laurel strip ============ */
   .laurel-strip{display:flex;justify-content:center;align-items:center;gap:20px;padding:6px 0 0;color:var(--gold);background:var(--sky-pale);}
   .laurel-strip .leaf{width:30px;height:30px;transform-origin:bottom center;animation:sway 4.5s ease-in-out infinite;}
   .laurel-strip .leaf:nth-child(2){animation-delay:.3s;} .laurel-strip .leaf:nth-child(4){animation-delay:.6s;}
   .laurel-strip .star{width:44px;height:44px;color:var(--gold-deep);}
   .laurel-strip .stem{width:52px;height:1px;background:var(--gold);opacity:.5;}
 
+  /* ============ mission/vision/philosophy ============ */
   .mvp{background:var(--sky-pale);}
   .mvp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
   .mvp-card{background:var(--white);border-radius:var(--radius);padding:32px 26px;box-shadow:0 1px 0 rgba(11,45,87,.05);position:relative;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
@@ -151,6 +178,7 @@
   .values-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
   .values-list span{background:var(--sky-pale-2);color:var(--navy);border-radius:999px;padding:5px 12px;font-size:.82rem;font-weight:600;}
 
+  /* ============ quienes somos ============ */
   .historia{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:start;}
   .historia-art{background:linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:var(--radius);padding:34px;color:var(--white);position:sticky;top:100px;}
   .historia-art h4{color:var(--gold-bright);font-size:1rem;margin-bottom:18px;font-family:'Inter';font-weight:700;}
@@ -168,17 +196,40 @@
   .team-card .role{color:var(--gold-deep);font-weight:600;font-size:.82rem;margin-bottom:10px;display:block;}
   .team-card p{font-size:.92rem;margin:0;}
 
-  .testimonios{margin-top:60px;background:radial-gradient(700px 300px at 85% -10%, rgba(79,166,224,.18), transparent 65%),linear-gradient(160deg,var(--navy),var(--navy-deep));border-radius:20px;padding:48px 44px 40px;color:var(--white);position:relative;overflow:hidden;border:1px solid rgba(231,170,59,.25);}
-  .testimonios::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(231,170,59,.35) 1px, transparent 1.4px);background-size:26px 26px;opacity:.12;}
+  /* ============ testimonios carousel ============ */
+  .testimonios{margin-top:60px;background:
+      radial-gradient(700px 300px at 85% -10%, rgba(79,166,224,.18), transparent 65%),
+      linear-gradient(160deg,var(--navy),var(--navy-deep));
+    border-radius:20px;padding:48px 44px 40px;color:var(--white);position:relative;overflow:hidden;
+    border:1px solid rgba(231,170,59,.25);
+  }
+  .testimonios::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(231,170,59,.35) 1px, transparent 1.4px);
+    background-size:26px 26px;opacity:.12;
+  }
   .testimonios-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px;position:relative;flex-wrap:wrap;}
   .testimonios-head h3{color:var(--white);margin:0;}
   .testi-counter{font-size:.82rem;color:var(--gold-bright);font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums;}
   .carousel{position:relative;}
   .carousel-track{display:flex;transition:transform .55s var(--ease);}
   .testi-slide{flex:0 0 100%;padding:0 4px;}
-  .testi-card{position:relative;display:flex;gap:24px;align-items:flex-start;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:38px 40px 32px;max-width:680px;overflow:hidden;backdrop-filter:blur(2px);}
-  .testi-mark{position:absolute;top:-22px;left:18px;font-family:'Fraunces',serif;font-weight:700;font-size:6.2rem;color:rgba(231,170,59,.22);line-height:1;pointer-events:none;user-select:none;}
-  .testi-avatar{position:relative;flex:none;width:54px;height:54px;border-radius:50%;background:linear-gradient(155deg,var(--gold-bright),var(--gold-deep));display:flex;align-items:center;justify-content:center;color:var(--navy-deep);box-shadow:0 8px 18px rgba(0,0,0,.3);}
+  .testi-card{
+    position:relative;display:flex;gap:24px;align-items:flex-start;
+    background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;padding:38px 40px 32px;max-width:680px;overflow:hidden;
+    backdrop-filter:blur(2px);
+  }
+  .testi-mark{
+    position:absolute;top:-22px;left:18px;font-family:'Fraunces',serif;font-weight:700;
+    font-size:6.2rem;color:rgba(231,170,59,.22);line-height:1;pointer-events:none;user-select:none;
+  }
+  .testi-avatar{
+    position:relative;flex:none;width:54px;height:54px;border-radius:50%;
+    background:linear-gradient(155deg,var(--gold-bright),var(--gold-deep));
+    display:flex;align-items:center;justify-content:center;color:var(--navy-deep);
+    box-shadow:0 8px 18px rgba(0,0,0,.3);
+  }
   .testi-avatar svg{width:24px;height:24px;}
   .testi-content{position:relative;min-width:0;}
   .testi-content p{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:#EEF4FC;font-size:1.14rem;line-height:1.56;margin:0 0 16px;}
@@ -197,6 +248,7 @@
     .testimonios{padding:36px 24px 32px;}
   }
 
+  /* ============ talleres carousel ============ */
   .talleres{background:var(--white);}
   .h-carousel{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;}
   .h-carousel::-webkit-scrollbar{display:none;}
@@ -209,30 +261,30 @@
   .taller-card p{font-size:.92rem;margin:0;}
   .carousel-nav-row{display:flex;justify-content:flex-end;gap:12px;margin-top:6px;}
 
+  /* ============ vida estudiantil ============ */
   .vida{background:var(--navy-deep);color:var(--white);position:relative;overflow:hidden;}
   .vida .blob{position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,var(--sky),transparent 70%);filter:blur(90px);opacity:.22;top:-140px;right:-100px;animation:drift1 18s ease-in-out infinite;}
   .vida .section-head h2{color:var(--white);}
   .vida .section-head p{color:#C9DCF0;}
   .vida-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:26px;position:relative;}
   .banda-card{background:linear-gradient(160deg,var(--navy),var(--navy-deep));border:1px solid rgba(231,170,59,.35);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;justify-content:center;}
-  .banda-card .icon-wrap{width:56px;height:56px;border-radius:13px;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;margin-bottom:18px;animation:bob 5s ease-in-out infinite;overflow:hidden;}
+  .banda-card .icon-wrap{width:56px;height:56px;border-radius:13px;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;margin-bottom:18px;animation:bob 5s ease-in-out infinite;}
   .banda-card .icon-wrap svg{width:28px;height:28px;}
-  .banda-card .icon-wrap img{width:44px;height:44px;object-fit:contain;}
   .banda-card h3{color:var(--white);font-size:1.32rem;}
   .banda-card p{color:#C9DCF0;}
   .deportes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .deporte-card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.13);border-radius:var(--radius);padding:24px;transition:transform .3s var(--ease),border-color .2s ease;}
   .deporte-card:hover{transform:translateY(-6px);border-color:var(--gold);}
-  .deporte-card .icon-wrap{width:46px;height:46px;border-radius:50%;background:var(--sky);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px;animation:floatY 5s ease-in-out infinite;overflow:hidden;}
+  .deporte-card .icon-wrap{width:46px;height:46px;border-radius:50%;background:var(--sky);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px;animation:floatY 5s ease-in-out infinite;}
   .deporte-card:nth-child(2) .icon-wrap{animation-delay:.6s;}
   .deporte-card:nth-child(3) .icon-wrap{animation-delay:1.2s;}
   .deporte-card .icon-wrap svg{width:24px;height:24px;}
-  .deporte-card .icon-wrap img{width:36px;height:36px;object-fit:contain;}
   .deporte-card h4{color:var(--white);font-family:'Inter';font-weight:700;font-size:1rem;margin-bottom:6px;}
   .deporte-card p{color:#B9CCE5;font-size:.88rem;margin:0;}
   .zona-note{grid-column:1 / -1;display:flex;align-items:center;gap:12px;color:var(--gold-bright);font-size:.9rem;font-weight:600;margin-top:4px;}
   .zona-note svg{width:20px;height:20px;flex:none;}
 
+  /* ============ banda de guerra: fotos ============ */
   .banda-photos{display:grid;gap:16px;margin-top:22px;}
   .banda-photo{margin:0;border-radius:12px;overflow:hidden;border:1px solid rgba(231,170,59,.35);}
   .banda-photo img{width:100%;height:auto;display:block;transition:transform .5s var(--ease);}
@@ -241,6 +293,7 @@
     .banda-photos{grid-template-columns:1fr 1fr;}
   }
 
+  /* ============ info practica ============ */
   .info-practica{background:var(--white);}
   .info-tabs-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:56px;}
   .turnos-row{display:flex;gap:10px;margin-bottom:16px;}
@@ -257,15 +310,19 @@
   .docs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   .doc-card{display:flex;align-items:center;gap:14px;border:1px solid #E1E9F4;border-radius:var(--radius);padding:16px 18px;text-decoration:none;transition:border-color .2s ease,transform .2s var(--ease);}
   .doc-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .icon-wrap img{width:68%;height:68%;object-fit:contain;}
+  .momento-media img.icon-img{width:64px;height:64px;object-fit:contain;}
+  .momento-media video{width:100%;height:100%;object-fit:cover;display:block;}
   .doc-card .icon-wrap{width:38px;height:38px;border-radius:8px;background:var(--sky-pale-2);color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none;}
   .doc-card .icon-wrap svg{width:20px;height:20px;}
   .doc-card strong{display:block;font-size:.92rem;color:var(--navy);}
   .doc-card span{font-size:.78rem;color:var(--ink-soft);}
 
+  /* ============ momentos (noticias + galeria) carousel ============ */
   .recursos{background:var(--sky-pale);}
   .momento-card{scroll-snap-align:start;flex:0 0 clamp(230px,24vw,270px);border-radius:var(--radius);overflow:hidden;background:var(--white);border:1px solid #E1E9F4;transition:transform .3s var(--ease);}
   .momento-card:hover{transform:translateY(-6px);}
-  .momento-media{height:170px;aspect-ratio:480 / 170;background:linear-gradient(140deg,var(--navy),var(--sky));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);overflow:hidden;}
+  .momento-media{height:170px;background:linear-gradient(140deg,var(--navy),var(--sky));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);overflow:hidden;}
   .momento-media svg{width:34px;height:34px;}
   .momento-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease);}
   .momento-card:hover .momento-media img{transform:scale(1.06);}
@@ -274,6 +331,7 @@
   .momento-body h4{font-family:'Inter';font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:6px;}
   .momento-body p{font-size:.87rem;margin:0;}
 
+  /* ============ contacto ============ */
   .contacto{background:var(--white);}
   .contacto-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:start;}
   .contacto-info h3{font-size:1.2rem;}
@@ -286,11 +344,15 @@
   form.contact-form{display:grid;gap:16px;}
   form.contact-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   form.contact-form label{font-size:.84rem;font-weight:600;color:var(--navy);display:block;margin-bottom:6px;}
-  form.contact-form input, form.contact-form textarea, form.contact-form select{width:100%;padding:11px 13px;border:1px solid #D6E0EE;border-radius:9px;font-family:'Inter';font-size:.92rem;background:var(--sky-pale);color:var(--ink);transition:border-color .2s ease,box-shadow .2s ease;}
+  form.contact-form input, form.contact-form textarea, form.contact-form select{
+    width:100%;padding:11px 13px;border:1px solid #D6E0EE;border-radius:9px;font-family:'Inter';font-size:.92rem;
+    background:var(--sky-pale);color:var(--ink);transition:border-color .2s ease,box-shadow .2s ease;
+  }
   form.contact-form input:focus, form.contact-form textarea:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 3px rgba(79,166,224,.25);}
   form.contact-form textarea{resize:vertical;min-height:110px;}
   form.contact-form .form-note{font-size:.8rem;color:var(--ink-soft);margin:0;}
 
+  /* ============ footer ============ */
   footer{background:var(--navy-deep);color:#B9CCE5;padding:56px 0 26px;}
   .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px;}
   .footer-brand{display:flex;gap:14px;align-items:flex-start;}
@@ -303,11 +365,17 @@
   footer a:hover{color:var(--gold-bright);}
   .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem;color:#7C93B5;}
 
-  .to-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--gold);color:var(--navy-deep);border:0;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(11,45,87,.3);opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s var(--ease),transform .3s var(--ease);z-index:150;}
+  /* ============ back to top ============ */
+  .to-top{
+    position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--gold);
+    color:var(--navy-deep);border:0;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(11,45,87,.3);
+    opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s var(--ease),transform .3s var(--ease);z-index:150;
+  }
   .to-top.show{opacity:1;pointer-events:auto;transform:translateY(0);}
   .to-top:hover{background:var(--gold-bright);}
   .to-top svg{width:20px;height:20px;}
 
+  /* ============ responsive ============ */
   @media (max-width:980px){
     .hero-inner{grid-template-columns:1fr;text-align:left;}
     .hero-shield{order:-1;margin-bottom:10px;}
@@ -332,7 +400,7 @@
 <header id="siteHeader">
   <div class="nav-inner">
     <a class="brand" href="#inicio">
-      <img src="escudo.png" alt="Escudo de la Escuela Secundaria General 21 de Noviembre" width="44" height="44">
+      <img src="img/escudo.png" alt="Escudo de la Escuela Secundaria General 21 de Noviembre">
       <span class="brand-text">
         <strong>Secundaria General 21 de Noviembre</strong>
         <span>Esquipulas, Xoxocotlán · Oaxaca</span>
@@ -384,7 +452,7 @@
     <div class="hero-shield rise rise-3">
       <span class="shield-ring" aria-hidden="true"></span>
       <span class="shield-ring r2" aria-hidden="true"></span>
-      <img src="escudo.png" alt="Escudo institucional E.S.G. 21 de Noviembre, Esquipulas — Ciencia y Virtud">
+      <img src="img/escudo.png" alt="Escudo institucional E.S.G. 21 de Noviembre, Esquipulas — Ciencia y Virtud">
     </div>
   </div>
 
@@ -685,7 +753,7 @@
     <div class="vida-layout">
       <div class="banda-card">
         <div class="icon-wrap">
-          <img src="img/icono-tambor.png" alt="Tambor de la Banda de Guerra">
+          <img src="img/tambor.png" alt="Tambor de la Banda de Guerra">
         </div>
         <h3>Banda de Guerra</h3>
         <p>Nuestra Banda de Guerra representa a la escuela en desfiles y actos cívicos, y es un espacio donde las y los estudiantes desarrollan disciplina, orden y trabajo en equipo.</p>
@@ -700,32 +768,19 @@
       </div>
       <div class="deportes-grid">
         <div class="deporte-card">
-          <div class="icon-wrap">
-            <img src="img/icono-basquetbol.png" alt="Jugador de basquetbol">
-          </div>
+          <div class="icon-wrap"><img src="img/baloncesto.png" alt="Jugador de baloncesto"></div>
           <h4>Basquetbol</h4>
           <p>Equipo escolar que compite en los torneos de la zona.</p>
         </div>
         <div class="deporte-card">
-          <div class="icon-wrap">
-            <img src="img/icono-futbol.png" alt="Jugador de futbol 7">
-          </div>
+          <div class="icon-wrap"><img src="img/jugador-de-futbol.png" alt="Jugador de futbol"></div>
           <h4>Futbol 7</h4>
           <p>Entrenamientos y participación en el calendario deportivo escolar.</p>
         </div>
         <div class="deporte-card">
-          <div class="icon-wrap">
-            <img src="img/icono-voleibol.png" alt="Jugadora de voleibol">
-          </div>
+          <div class="icon-wrap"><img src="img/jugador-de-voleibol.png" alt="Jugadora de voleibol"></div>
           <h4>Voleibol</h4>
           <p>Selección femenil y varonil que representa a la institución.</p>
-        </div>
-        <div class="deporte-card">
-          <div class="icon-wrap">
-            <img src="img/icono-ajedrez.png" alt="Piezas de ajedrez">
-          </div>
-          <h4>Ajedrez</h4>
-          <p>Nuevo proyecto escolar que desarrolla concentración, estrategia y pensamiento lógico.</p>
         </div>
         <div class="zona-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.7 8 10 4.5-1.3 8-5 8-10V6l-8-4Z"/></svg>
@@ -798,7 +853,7 @@
   </div>
 </section>
 
-<!-- ================= RECURSOS Y NOTICIAS ================= -->
+<!-- ================= RECURSOS Y NOTICIAS (carrusel) ================= -->
 <section class="recursos" id="noticias">
   <div class="wrap">
     <div class="section-head">
@@ -812,102 +867,160 @@
 
     <div class="h-carousel" id="momentosCarousel">
       <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/navidad-manualidades.jpg" alt="Manualidades navideñas elaboradas por los estudiantes">
-        </div>
+        <div class="momento-media"><img src="img/celebraciones_4.jpg" alt="Manualidades navideñas - Navidad"></div>
         <div class="momento-body"><span class="momento-tag">Navidad</span><h4>Manualidades navideñas</h4><p>Adornos y velas elaborados por los estudiantes para las fiestas decembrinas.</p></div>
       </div>
       <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/muertos-comparsa.jpg" alt="Comparsa prehispánica en la celebración de Día de Muertos">
-        </div>
+        <div class="momento-media"><img src="img/celebraciones_5.jpg" alt="Comparsa prehispánica - Día de Muertos"></div>
         <div class="momento-body"><span class="momento-tag">Día de Muertos</span><h4>Comparsa prehispánica</h4><p>Alumnos caracterizados con temática prehispánica en la celebración de Día de Muertos.</p></div>
       </div>
       <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/muertos-disfraces.jpg" alt="Disfraces y catrinas de estudiantes y familias">
-        </div>
+        <div class="momento-media"><img src="img/celebraciones_6.jpg" alt="Disfraces y catrinas - Día de Muertos"></div>
         <div class="momento-body"><span class="momento-tag">Día de Muertos</span><h4>Disfraces y catrinas</h4><p>Estudiantes y familias participando con catrinas y disfraces.</p></div>
       </div>
       <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/muertos-mojiganga.jpg" alt="Mojiganga escolar por las calles de Esquipulas">
-        </div>
+        <div class="momento-media"><img src="img/celebraciones_7.jpg" alt="Mojiganga por las calles - Día de Muertos"></div>
         <div class="momento-body"><span class="momento-tag">Día de Muertos</span><h4>Mojiganga por las calles</h4><p>La comunidad escolar salió con una mojiganga por las calles de Esquipulas.</p></div>
       </div>
       <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/navidad-cartas.jpg" alt="Cartas y tarjetas navideñas elaboradas por los alumnos">
-        </div>
+        <div class="momento-media"><img src="img/celebraciones.jpg" alt="Cartas navideñas - Navidad"></div>
         <div class="momento-body"><span class="momento-tag">Navidad</span><h4>Cartas navideñas</h4><p>Mensajes y tarjetas de Navidad elaborados por nuestros alumnos.</p></div>
       </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/celebraciones2.jpg" alt="Adornos navideños - Navidad"></div>
+        <div class="momento-body"><span class="momento-tag">Navidad</span><h4>Adornos navideños</h4><p>Coronas y decoraciones hechas en clase para la temporada navideña.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/celebraciones_3.jpg" alt="Coronas navideñas - Navidad"></div>
+        <div class="momento-body"><span class="momento-tag">Navidad</span><h4>Coronas navideñas</h4><p>Más adornos elaborados por los alumnos para decorar la escuela.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/club_de_danza_2.jpg" alt="Ensayo de danza folklórica - Club de Danza"></div>
+        <div class="momento-body"><span class="momento-tag">Club de Danza</span><h4>Ensayo de danza folklórica</h4><p>El Club de Danza durante una presentación en el patio escolar.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/Club_de_danza.jpg" alt="Presentación de danza folklórica - Club de Danza"></div>
+        <div class="momento-body"><span class="momento-tag">Club de Danza</span><h4>Presentación de danza folklórica</h4><p>Nuestros bailarines representando trajes típicos de distintas regiones.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/festivales.jpg" alt="Festival escolar - Festivales"></div>
+        <div class="momento-body"><span class="momento-tag">Festivales</span><h4>Festival escolar</h4><p>Baile y convivencia durante uno de nuestros festivales.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/artes_2.jpg" alt="Exposición de Artes - Artes"></div>
+        <div class="momento-body"><span class="momento-tag">Artes</span><h4>Exposición de Artes</h4><p>Retratos y pinturas elaborados por los estudiantes del taller de Artes.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/artes_3.jpg" alt="Exposición de Artes - Artes"></div>
+        <div class="momento-body"><span class="momento-tag">Artes</span><h4>Exposición de Artes</h4><p>Pinturas y trabajos de investigación histórica de nuestros alumnos.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/artes_4.jpg" alt="Exposición de Artes - Artes"></div>
+        <div class="momento-body"><span class="momento-tag">Artes</span><h4>Exposición de Artes</h4><p>Autorretratos y pinturas realizados en la clase de Artes.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/artes.jpg" alt="Exposición de Artes - Artes"></div>
+        <div class="momento-body"><span class="momento-tag">Artes</span><h4>Exposición de Artes</h4><p>Retratos e ilustraciones creados por los estudiantes.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/actos_civicos.jpg" alt="Escolta y banda de guerra durante un acto cívico en la escuela"></div>
+        <div class="momento-body"><span class="momento-tag">Actos cívicos</span><h4>Escolta y Banda de Guerra</h4><p>Nuestra escolta y Banda de Guerra en un acto cívico dentro del plantel.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/honores_a_la_bandera.jpg" alt="Ceremonia de Honores a la Bandera con estudiantes formados"></div>
+        <div class="momento-body"><span class="momento-tag">Actos cívicos</span><h4>Honores a la Bandera</h4><p>La comunidad escolar reunida en la ceremonia semanal de Honores a la Bandera.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/capacitaciones_2.jpg" alt="Capacitación a estudiantes sobre el uso responsable de dispositivos"></div>
+        <div class="momento-body"><span class="momento-tag">Capacitaciones</span><h4>Uso responsable de la tecnología</h4><p>Plática formativa sobre cómo el uso de dispositivos afecta la vida diaria.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/capacitaciones_3.jpg" alt="Capacitación sobre emociones y salud mental con estudiantes"></div>
+        <div class="momento-body"><span class="momento-tag">Capacitaciones</span><h4>Las emociones y la mente</h4><p>Taller sobre inteligencia emocional impartido a nuestros estudiantes.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/capacitaciones_4.jpg" alt="Asamblea general con autoridades educativas de Oaxaca"></div>
+        <div class="momento-body"><span class="momento-tag">Capacitaciones</span><h4>Visita de la Casa Rodante IEEPO</h4><p>Asamblea general con autoridades educativas del estado de Oaxaca.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><img src="img/capacitaciones.jpg" alt="Dinámica grupal de convivencia entre estudiantes"></div>
+        <div class="momento-body"><span class="momento-tag">Capacitaciones</span><h4>Dinámicas de convivencia</h4><p>Actividad grupal como parte de nuestras jornadas formativas.</p></div>
+      </div>
+    </div>
+<div class="momento-card">
+        <div class="momento-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5M16 4v5"/></svg></div>
+        <div class="momento-body"><span class="momento-tag">Ciclo escolar</span><h4>Inicio del ciclo escolar</h4><p>Fechas de inicio, entrega de listas y primeros días de clase.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v4H4z"/><path d="M4 4v16M20 4v16M8 20V8M12 20V8M16 20V8"/></svg></div>
+        <div class="momento-body"><span class="momento-tag">Banda de Guerra</span><h4>Convocatoria a nuevos integrantes</h4><p>Abre inscripción para estudiantes interesados en participar.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></div>
+        <div class="momento-body"><span class="momento-tag">Deportes</span><h4>Calendario de eventos de zona</h4><p>Fechas de basquetbol, futbol 7 y voleibol.</p></div>
+      </div>
+      <div class="momento-card">
+        <div class="momento-media"><video src="img/ajedrez.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Video del proyecto de Ajedrez de la Academia de Matematicas"></video></div>
+        <div class="momento-body"><span class="momento-tag">Academia de Matemáticas</span><h4>Nuevo proyecto de Ajedrez</h4><p>La Academia de Matemáticas impulsa el ajedrez como herramienta de pensamiento lógico. Fotografías próximamente.</p></div>
+      </div>
+          <div class="carousel-nav-row">
+      <button class="car-btn" data-scroll-target="momentosCarousel" data-dir="-1" aria-label="Anterior" style="border-color:#C9DCEE;color:var(--navy);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18 9 12l6-6"/></svg></button>
+      <button class="car-btn" data-scroll-target="momentosCarousel" data-dir="1" aria-label="Siguiente" style="border-color:#C9DCEE;color:var(--navy);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
     </div>
   </div>
 </section>
 
-<!-- ================= CONTACTO ================= -->
+<!-- ================= CONTACTO Y UBICACIÓN ================= -->
 <section class="contacto" id="contacto">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker-line">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
-        Estamos para ayudarte
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.6 7-12a7 7 0 1 0-14 0c0 5.4 7 12 7 12Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+        Estamos cerca
       </div>
-      <h2>Contacto</h2>
-      <p>Comunícate con la escuela para dudas sobre inscripciones, talleres o actividades escolares.</p>
+      <h2>Contacto y ubicación</h2>
+      <p>Escríbenos por Facebook o completa el formulario y te responderemos a la brevedad.</p>
     </div>
-
     <div class="contacto-grid">
       <div class="contacto-info">
-        <h3>Datos de la escuela</h3>
+        <h3>Datos de contacto</h3>
         <div class="info-line">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.6 7-12a7 7 0 1 0-14 0c0 5.4 7 12 7 12Z"/><circle cx="12" cy="10" r="2.4"/></svg>
-          <div><strong>Dirección</strong><span>Esquipulas, Xoxocotlán, Oaxaca, México</span></div>
+          <div><strong>Ubicación</strong><span>Esquipulas, Xoxocotlán, Oaxaca, México</span></div>
         </div>
         <div class="info-line">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
-          <div><strong>Correo electrónico</strong><span>contacto@secundaria21noviembre.mx</span></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5M16 4v5"/></svg>
+          <div><strong>Turno</strong><span>Matutino, de lunes a viernes</span></div>
         </div>
         <div class="info-line">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-          <div><strong>Horario de oficina</strong><span>Lunes a viernes, 8:00 a.m. – 2:00 p.m.</span></div>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+          <div><strong>Facebook</strong><span><a href="https://www.facebook.com/profile.php?id=61572067992651&locale=es_LA" target="_blank" rel="noopener">Escuela Secundaria General 21 de Noviembre</a></span></div>
         </div>
         <div class="map-frame">
-          <iframe title="Mapa de Esquipulas, Xoxocotlán" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-96.77%2C17.02%2C-96.71%2C17.07&amp;layer=mapnik&amp;marker=17.045%2C-96.74"></iframe>
+          <iframe src="https://www.google.com/maps?q=Esquipulas,+Xoxocotl%C3%A1n,+Oaxaca&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de Esquipulas, Xoxocotlán, Oaxaca"></iframe>
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="event.preventDefault();alert('Gracias por tu mensaje. Pronto nos pondremos en contacto.');this.reset();">
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Gracias por escribirnos. Este formulario es una demostración; conéctalo a tu correo o a Facebook Messenger para recibir mensajes reales.');">
         <div class="row2">
+          <div><label for="nombre">Nombre completo</label><input id="nombre" type="text" required placeholder="Tu nombre"></div>
           <div>
-            <label for="nombre">Nombre completo</label>
-            <input id="nombre" name="nombre" type="text" required>
+            <label for="parentesco">Eres</label>
+            <select id="parentesco">
+              <option>Madre / padre de familia</option>
+              <option>Estudiante</option>
+              <option>Egresado</option>
+              <option>Otro</option>
+            </select>
           </div>
-          <div>
-            <label for="telefono">Teléfono</label>
-            <input id="telefono" name="telefono" type="tel">
-          </div>
         </div>
-        <div>
-          <label for="email">Correo electrónico</label>
-          <input id="email" name="email" type="email" required>
+        <div class="row2">
+          <div><label for="correo">Correo electrónico</label><input id="correo" type="email" required placeholder="tucorreo@ejemplo.com"></div>
+          <div><label for="telefono">Teléfono (opcional)</label><input id="telefono" type="tel" placeholder="951 000 0000"></div>
         </div>
-        <div>
-          <label for="asunto">Asunto</label>
-          <select id="asunto" name="asunto">
-            <option>Información general</option>
-            <option>Inscripciones</option>
-            <option>Talleres</option>
-            <option>Actividades extraescolares</option>
-          </select>
-        </div>
-        <div>
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" required></textarea>
-        </div>
-        <p class="form-note">Al enviar aceptas que la escuela utilice tus datos para responder a tu consulta.</p>
-        <button type="submit" class="btn btn-navy" style="justify-self:flex-start;">Enviar mensaje</button>
+        <div><label for="mensaje">Mensaje</label><textarea id="mensaje" required placeholder="Cuéntanos en qué podemos ayudarte"></textarea></div>
+        <button class="btn btn-navy" type="submit" style="justify-self:start;">Enviar mensaje</button>
+        <p class="form-note">Formulario de demostración: los mensajes no se envían todavía. Puede conectarse a un correo real o a un servicio de formularios cuando la escuela lo indique.</p>
       </form>
     </div>
   </div>
@@ -918,663 +1031,204 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="escudo.png" alt="Escudo de la Escuela Secundaria General 21 de Noviembre">
+        <img src="img/escudo.png" alt="Escudo E.S.G. 21 de Noviembre">
         <div>
-          <h4>Secundaria General 21 de Noviembre</h4>
+          <h4>Escuela Secundaria General 21 de Noviembre</h4>
           <p>Esquipulas, Xoxocotlán, Oaxaca · Ciencia y Virtud</p>
         </div>
       </div>
       <div>
-        <h5>Secciones</h5>
+        <h5>Sitio</h5>
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
           <li><a href="#quienes-somos">Quiénes somos</a></li>
           <li><a href="#talleres">Talleres</a></li>
-          <li><a href="#noticias">Recursos y noticias</a></li>
+          <li><a href="#vida-estudiantil">Vida estudiantil</a></li>
+          <li><a href="#info-practica">Información práctica</a></li>
         </ul>
       </div>
       <div>
         <h5>Comunidad</h5>
         <ul>
-          <li><a href="#vida-estudiantil">Vida estudiantil</a></li>
-          <li><a href="#info-practica">Información práctica</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#inscripcion">Inscripciones</a></li>
+          <li><a href="#horarios">Horarios</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
       <div>
         <h5>Síguenos</h5>
-        <ul>
-          <li><a href="https://www.facebook.com/profile.php?id=61572067992651&locale=es_LA" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="mailto:contacto@secundaria21noviembre.com">Correo</a></li>
-        </ul>
+        <ul><li><a href="https://www.facebook.com/profile.php?id=61572067992651&locale=es_LA" target="_blank" rel="noopener">Facebook</a></li></ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> Escuela Secundaria General 21 de Noviembre. Todos los derechos reservados.</span>
-      <span>Hecho con cariño en Esquipulas, Oaxaca.</span>
+      <span>© 2026 Escuela Secundaria General 21 de Noviembre — Esquipulas, Xoxocotlán, Oaxaca.</span>
+      <span>Sitio institucional no oficial de la SEP.</span>
     </div>
   </div>
 </footer>
 
 <button class="to-top" id="toTop" aria-label="Volver arriba">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
 <script>
 (function(){
-  document.getElementById('year').textContent = new Date().getFullYear();
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var menuToggle = document.getElementById('menuToggle');
-  var primaryNav = document.getElementById('primaryNav');
-  if(menuToggle){
-    menuToggle.addEventListener('click', function(){
-      var open = primaryNav.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-  primaryNav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ primaryNav.classList.remove('open'); });
+  /* mobile menu */
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
   });
 
+  /* header shadow + back-to-top on scroll */
   var header = document.getElementById('siteHeader');
   var toTop = document.getElementById('toTop');
   window.addEventListener('scroll', function(){
-    if(window.scrollY > 40) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-    if(window.scrollY > 500) toTop.classList.add('show'); else toTop.classList.remove('show');
-  });
-  toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+    var y = window.scrollY;
+    header.classList.toggle('scrolled', y > 12);
+    toTop.classList.toggle('show', y > 700);
+  }, { passive:true });
+  toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior: reduceMotion ? 'auto' : 'smooth'}); });
 
+  /* ribbon unfurl on view */
   var ribbon = document.getElementById('ribbon1');
-  if(ribbon){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){ ribbon.classList.add('in-view'); io.disconnect(); }
-      });
-    },{threshold:.25});
-    io.observe(ribbon);
-  }
+  var ribbonObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ ribbon.classList.add('in-view'); ribbonObs.unobserve(e.target); } });
+  }, { threshold:.4 });
+  ribbonObs.observe(ribbon);
 
+  /* scroll-spy active nav link */
+  var sections = ['inicio','mision','quienes-somos','talleres','vida-estudiantil','info-practica','noticias','contacto']
+    .map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        var id = entry.target.id;
+        links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href') === '#'+id); });
+      }
+    });
+  }, { rootMargin:'-45% 0px -50% 0px', threshold:0 });
+  sections.forEach(function(s){ spy.observe(s); });
+
+  /* count-up stats */
+  var counters = document.querySelectorAll('[data-count-to]');
+  var countObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      countObs.unobserve(el);
+      if (reduceMotion){ el.textContent = target; return; }
+      var start = null, duration = 1100;
+      function step(ts){
+        if (!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold:.6 });
+  counters.forEach(function(c){ countObs.observe(c); });
+
+  /* testimonios carousel */
   var track = document.getElementById('testiTrack');
-  var slides = track ? Array.prototype.slice.call(track.children) : [];
+  var slides = track.children.length;
   var dotsWrap = document.getElementById('testiDots');
-  var counter = document.getElementById('testiCounter');
-  var idx = 0;
-  function render(){
-    if(!track) return;
-    track.style.transform = 'translateX(' + (-idx * 100) + '%)';
-    if(counter) counter.textContent = String(idx + 1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
-    if(dotsWrap){
-      Array.prototype.forEach.call(dotsWrap.children, function(d,i){ d.classList.toggle('active', i===idx); });
-    }
+  var idx = 0, timer;
+  for (var i=0;i<slides;i++){
+    var d = document.createElement('button');
+    if (i===0) d.className='active';
+    d.setAttribute('aria-label','Ir al testimonio '+(i+1));
+    d.addEventListener('click', function(n){ return function(){ goTo(n); resetTimer(); }; }(i));
+    dotsWrap.appendChild(d);
   }
-  if(dotsWrap){
-    slides.forEach(function(_,i){
-      var b = document.createElement('button');
-      b.type='button';
-      b.setAttribute('aria-label','Ir al testimonio ' + (i+1));
-      b.addEventListener('click', function(){ idx=i; render(); });
-      dotsWrap.appendChild(b);
+  var testiCounter = document.getElementById('testiCounter');
+  function render(){
+    track.style.transform = 'translateX(-' + (idx*100) + '%)';
+    Array.prototype.forEach.call(dotsWrap.children, function(d,i){ d.classList.toggle('active', i===idx); });
+    if (testiCounter) testiCounter.textContent = String(idx+1).padStart(2,'0') + ' / ' + String(slides).padStart(2,'0');
+  }
+  function goTo(n){ idx = (n+slides)%slides; render(); }
+  function next(){ goTo(idx+1); }
+  function prev(){ goTo(idx-1); }
+  document.getElementById('testiNext').addEventListener('click', function(){ next(); resetTimer(); });
+  document.getElementById('testiPrev').addEventListener('click', function(){ prev(); resetTimer(); });
+  function resetTimer(){ clearInterval(timer); if(!reduceMotion) timer = setInterval(next, 6000); }
+  var testiWrap = document.getElementById('testiCarousel');
+  testiWrap.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  testiWrap.addEventListener('mouseleave', resetTimer);
+  testiWrap.addEventListener('focusin', function(){ clearInterval(timer); });
+  testiWrap.addEventListener('focusout', resetTimer);
+  render();
+  resetTimer();
+
+  /* horizontal drag-scroll carousels (talleres, momentos) + arrow buttons */
+  function makeDraggable(el){
+    var isDown=false, startX, scrollLeft;
+    el.addEventListener('mousedown', function(e){
+      isDown=true; el.classList.add('grabbing'); startX=e.pageX-el.offsetLeft; scrollLeft=el.scrollLeft;
+    });
+    ['mouseleave','mouseup'].forEach(function(evt){ el.addEventListener(evt, function(){ isDown=false; el.classList.remove('grabbing'); }); });
+    el.addEventListener('mousemove', function(e){
+      if(!isDown) return; e.preventDefault();
+      var x = e.pageX - el.offsetLeft; var walk = (x-startX)*1.2;
+      el.scrollLeft = scrollLeft - walk;
     });
   }
-  var prev = document.getElementById('testiPrev');
-  var next = document.getElementById('testiNext');
-  if(prev) prev.addEventListener('click', function(){ idx = (idx - 1 + slides.length) % slides.length; render(); });
-  if(next) next.addEventListener('click', function(){ idx = (idx + 1) % slides.length; render(); });
-  render();
-
+  ['talleresCarousel','momentosCarousel'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) makeDraggable(el);
+  });
   document.querySelectorAll('[data-scroll-target]').forEach(function(btn){
     btn.addEventListener('click', function(){
-      var target = document.getElementById(btn.getAttribute('data-scroll-target'));
-      var dir = parseInt(btn.getAttribute('data-dir'), 10) || 1;
-      if(target) target.scrollBy({left: dir * target.clientWidth * 0.8, behavior:'smooth'});
+      var el = document.getElementById(btn.getAttribute('data-scroll-target'));
+      var card = el.querySelector('.taller-card, .momento-card');
+      var amount = card ? (card.getBoundingClientRect().width + 22) : 260;
+      el.scrollBy({ left: amount * parseInt(btn.getAttribute('data-dir'),10), behavior: reduceMotion ? 'auto' : 'smooth' });
+      restartMomentosAutoplay();
     });
   });
 
-  document.querySelectorAll('.h-carousel').forEach(function(el){
-    var down=false, startX=0, scrollStart=0;
-    el.addEventListener('mousedown', function(e){ down=true; el.classList.add('grabbing'); startX=e.pageX; scrollStart=el.scrollLeft; });
-    ['mouseleave','mouseup'].forEach(function(evt){ el.addEventListener(evt, function(){ down=false; el.classList.remove('grabbing'); }); });
-    el.addEventListener('mousemove', function(e){ if(!down) return; e.preventDefault(); el.scrollLeft = scrollStart - (e.pageX - startX); });
-  });
-
-  var stats = document.querySelectorAll('[data-count-to]');
-  if(stats.length){
-    var io2 = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(!en.isIntersecting) return;
-        var el = en.target;
-        var target = parseInt(el.getAttribute('data-count-to'), 10);
-        var cur = 0;
-        var step = Math.max(1, Math.round(target/30));
-        var t = setInterval(function(){
-          cur += step;
-          if(cur >= target){ cur = target; clearInterval(t); }
-          el.textContent = cur;
-        }, 40);
-        io2.unobserve(el);
-      });
-    },{threshold:.5});
-    stats.forEach(function(s){ io2.observe(s); });
-  }
-
-  var sections = ['inicio','quienes-somos','talleres','vida-estudiantil','info-practica','noticias','contacto'];
-  var links = document.querySelectorAll('nav.primary-nav a[href^="#"]');
-  var io3 = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(!en.isIntersecting) return;
-      var id = en.target.id;
-      links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href') === '#' + id); });
-    });
-  },{rootMargin:'-40% 0px -55% 0px'});
-  sections.forEach(function(id){ var s = document.getElementById(id); if(s) io3.observe(s); });
-})();
-</script>
-</body>
-</html></p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Español</strong></footer>
-              </div>
-            </div>
-          </div>
-          <div class="testi-slide">
-            <div class="testi-card">
-              <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v6L4 20a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3L15 8V2"/><path d="M9 2h6"/><path d="M6.5 15h11"/></svg></div>
-              <div class="testi-content">
-                <p>Me gusta que en los experimentos hasta el estudiante más callado hace preguntas. La curiosidad no distingue calificaciones.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Ciencias</strong></footer>
-              </div>
-            </div>
-          </div>
-          <div class="testi-slide">
-            <div class="testi-card">
-              <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-              <div class="testi-content">
-                <p>Les enseño que entender el pasado de Oaxaca y de México les ayuda a entender quiénes son ellos mismos.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Historia</strong></footer>
-              </div>
-            </div>
-          </div>
-          <div class="testi-slide">
-            <div class="testi-card">
-              <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c-4 3-7 8-7 13a7 7 0 0 0 14 0c0-5-3-10-7-13Zm0 3.4L14.6 9l-2.6 2.6L9.4 9 12 5.4Z"/></svg></div>
-              <div class="testi-content">
-                <p>Cuando salimos a observar las plantas del patio, los alumnos empiezan a ver la escuela distinto: como un lugar vivo.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Biología</strong></footer>
-              </div>
-            </div>
-          </div>
-          <div class="testi-slide">
-            <div class="testi-card">
-              <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.7 8 10 4.5-1.3 8-5 8-10V6l-8-4Z"/></svg></div>
-              <div class="testi-content">
-                <p>Aquí no solo hablamos de valores, los practicamos: en la Banda de Guerra, en los deportes, en cómo se tratan entre ellos.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Formación Cívica y Ética</strong></footer>
-              </div>
-            </div>
-          </div>
-          <div class="testi-slide">
-            <div class="testi-card">
-              <span class="testi-mark" aria-hidden="true">&ldquo;</span>
-              <div class="testi-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></div>
-              <div class="testi-content">
-                <p>Verlos perder el miedo a hablar en inglés, aunque se equivoquen, es el avance más grande que puedo pedir.</p>
-                <footer><span class="rule"></span><strong>Profesor(a) de Inglés</strong></footer>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <button class="car-btn" id="testiPrev" aria-label="Testimonio anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18 9 12l6-6"/></svg></button>
-        <div class="dots" id="testiDots"></div>
-        <button class="car-btn" id="testiNext" aria-label="Siguiente testimonio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TALLERES ================= -->
-<section class="talleres" id="talleres">
-  <div class="wrap">
-    <div class="section-head" style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;">
-      <div>
-        <div class="kicker-line">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
-          Educación tecnológica
-        </div>
-        <h2>Talleres</h2>
-        <p>Desde el primer grado, cada estudiante cursa uno de nuestros cuatro talleres técnicos, pensados para desarrollar habilidades prácticas junto con la formación académica.</p>
-      </div>
-    </div>
-    <div class="h-carousel" id="talleresCarousel">
-      <div class="taller-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
-        <h3>Informática</h3>
-        <p>Uso de equipo de cómputo, fundamentos de programación y herramientas digitales aplicadas a proyectos escolares.</p>
-      </div>
-      <div class="taller-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
-        <h3>Ofimática</h3>
-        <p>Manejo de procesadores de texto, hojas de cálculo y presentaciones para el trabajo escolar y administrativo.</p>
-      </div>
-      <div class="taller-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div>
-        <h3>Circuitos eléctricos</h3>
-        <p>Principios de electricidad, armado de circuitos y prácticas de seguridad en instalaciones básicas.</p>
-      </div>
-      <div class="taller-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 6-6 2 2-6 6-2Z"/></svg></div>
-        <h3>Turismo</h3>
-        <p>Conocimiento del patrimonio cultural y natural de Oaxaca, y nociones de atención a visitantes.</p>
-      </div>
-    </div>
-    <div class="carousel-nav-row">
-      <button class="car-btn" data-scroll-target="talleresCarousel" data-dir="-1" aria-label="Anterior" style="border-color:#D6E0EE;color:var(--navy);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18 9 12l6-6"/></svg></button>
-      <button class="car-btn" data-scroll-target="talleresCarousel" data-dir="1" aria-label="Siguiente" style="border-color:#D6E0EE;color:var(--navy);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ================= VIDA ESTUDIANTIL ================= -->
-<section class="vida" id="vida-estudiantil">
-  <span class="blob" aria-hidden="true"></span>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker-line">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.7 8 10 4.5-1.3 8-5 8-10V6l-8-4Z"/></svg>
-        Fuera del salón de clases
-      </div>
-      <h2>Vida estudiantil y actividades extraescolares</h2>
-      <p>La formación en la 21 de Noviembre continúa después de clases, con disciplina, trabajo en equipo y orgullo por representar a la escuela.</p>
-    </div>
-    <div class="vida-layout">
-      <div class="banda-card">
-        <div class="icon-wrap">
-          <img src="img/icono-tambor.png" alt="Tambor de la Banda de Guerra">
-        </div>
-        <h3>Banda de Guerra</h3>
-        <p>Nuestra Banda de Guerra representa a la escuela en desfiles y actos cívicos, y es un espacio donde las y los estudiantes desarrollan disciplina, orden y trabajo en equipo.</p>
-        <div class="banda-photos">
-          <figure class="banda-photo">
-            <img src="img/banda-guerra-1.jpg" alt="La Banda de Guerra en formación durante una presentación escolar" loading="lazy">
-          </figure>
-          <figure class="banda-photo">
-            <img src="img/banda-guerra-2.jpg" alt="Integrantes de la Banda de Guerra con tambores y trompetas" loading="lazy">
-          </figure>
-        </div>
-      </div>
-      <div class="deportes-grid">
-        <div class="deporte-card">
-          <div class="icon-wrap">
-            <img src="img/icono-basquetbol.png" alt="Jugador de basquetbol">
-          </div>
-          <h4>Basquetbol</h4>
-          <p>Equipo escolar que compite en los torneos de la zona.</p>
-        </div>
-        <div class="deporte-card">
-          <div class="icon-wrap">
-            <img src="img/icono-futbol.png" alt="Jugador de futbol 7">
-          </div>
-          <h4>Futbol 7</h4>
-          <p>Entrenamientos y participación en el calendario deportivo escolar.</p>
-        </div>
-        <div class="deporte-card">
-          <div class="icon-wrap">
-            <img src="img/icono-voleibol.png" alt="Jugadora de voleibol">
-          </div>
-          <h4>Voleibol</h4>
-          <p>Selección femenil y varonil que representa a la institución.</p>
-        </div>
-        <div class="deporte-card">
-          <div class="icon-wrap">
-            <img src="img/icono-ajedrez.png" alt="Piezas de ajedrez">
-          </div>
-          <h4>Ajedrez</h4>
-          <p>Nuevo proyecto escolar que desarrolla concentración, estrategia y pensamiento lógico.</p>
-        </div>
-        <div class="zona-note">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.7 8 10 4.5-1.3 8-5 8-10V6l-8-4Z"/></svg>
-          Nuestros equipos participan en los eventos deportivos de zona escolar en las tres disciplinas.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= INFORMACIÓN PRÁCTICA ================= -->
-<section class="info-practica" id="info-practica">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker-line">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
-        Para madres, padres y estudiantes
-      </div>
-      <h2>Información práctica</h2>
-      <p>Horarios, requisitos de inscripción y documentos que necesitas para el ciclo escolar.</p>
-    </div>
-
-    <div class="info-tabs-grid">
-      <div id="horarios">
-        <div class="turnos-row">
-          <span class="turno-chip">Turno Matutino</span>
-          <span class="turno-chip">Turno Mixto</span>
-        </div>
-        <table class="horario">
-          <caption>Horario general — clases de 50 minutos</caption>
-          <thead><tr><th>Actividad</th><th>Turno Matutino</th><th>Turno Mixto</th></tr></thead>
-          <tbody>
-            <tr><td>Entrada</td><td>7:00 a.m.</td><td>8:40 a.m.</td></tr>
-            <tr><td>Receso</td><td colspan="2">10:20 a.m. – 10:50 a.m. (ambos turnos)</td></tr>
-            <tr><td>Salida</td><td>1:20 p.m.</td><td>3:00 p.m.</td></tr>
-            <tr><td>Ensayos Banda de Guerra / deportes</td><td colspan="2">Según calendario, en horario extraclase</td></tr>
-          </tbody>
-        </table>
-        <div class="cuota-note">La educación en esta escuela pública es gratuita. La Sociedad de Padres de Familia define, cada ciclo escolar, una cuota de cooperación voluntaria para el mantenimiento de las instalaciones.</div>
-      </div>
-
-      <div class="req-box" id="inscripcion">
-        <h3>Requisitos de inscripción</h3>
-        <ul class="req-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Acta de nacimiento original y copia</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>CURP actualizada</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Certificado de educación primaria</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Comprobante de domicilio reciente</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Cuatro fotografías tamaño infantil</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Certificado médico vigente</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3 style="margin-bottom:18px;">Documentos descargables</h3>
-    <div class="docs-grid">
-      <a class="doc-card" href="#">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg></div>
-        <div><strong>Acuerdos de convivencia</strong><span>PDF · próximamente</span></div>
-      </a>
-      <a class="doc-card" href="#">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg></div>
-        <div><strong>Calendario escolar</strong><span>PDF · próximamente</span></div>
-      </a>
-      <a class="doc-card" href="#">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg></div>
-        <div><strong>Lista de útiles y material de talleres</strong><span>PDF · próximamente</span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= RECURSOS Y NOTICIAS ================= -->
-<section class="recursos" id="noticias">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker-line">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
-        Al día
-      </div>
-      <h2>Recursos y noticias</h2>
-      <p>Avisos, eventos y un adelanto de nuestras instalaciones. Para el detalle completo de cada evento, seguimos publicando en nuestra página de Facebook.</p>
-    </div>
-
-    <div class="h-carousel" id="momentosCarousel">
-      <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/navidad-manualidades.jpg" alt="Manualidades navideñas elaboradas por los estudiantes">
-        </div>
-        <div class="momento-body"><span class="momento-tag">Navidad</span><h4>Manualidades navideñas</h4><p>Adornos y velas elaborados por los estudiantes para las fiestas decembrinas.</p></div>
-      </div>
-      <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/muertos-comparsa.jpg" alt="Comparsa prehispánica en la celebración de Día de Muertos">
-        </div>
-        <div class="momento-body"><span class="momento-tag">Día de Muertos</span><h4>Comparsa prehispánica</h4><p>Alumnos caracterizados con temática prehispánica en la celebración de Día de Muertos.</p></div>
-      </div>
-      <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/muertos-disfraces.jpg" alt="Disfraces y catrinas de estudiantes y familias">
-        </div>
-        <div class="momento-body"><span class="momento-tag">Día de Muertos</span><h4>Disfraces y catrinas</h4><p>Estudiantes y familias participando con catrinas y disfraces.</p></div>
-      </div>
-      <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/muertos-mojiganga.jpg" alt="Mojiganga escolar por las calles de Esquipulas">
-        </div>
-        <div class="momento-body"><span class="momento-tag">Día de Muertos</span><h4>Mojiganga por las calles</h4><p>La comunidad escolar salió con una mojiganga por las calles de Esquipulas.</p></div>
-      </div>
-      <div class="momento-card">
-        <div class="momento-media">
-          <img src="img/navidad-cartas.jpg" alt="Cartas y tarjetas navideñas elaboradas por los alumnos">
-        </div>
-        <div class="momento-body"><span class="momento-tag">Navidad</span><h4>Cartas navideñas</h4><p>Mensajes y tarjetas de Navidad elaborados por nuestros alumnos.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACTO ================= -->
-<section class="contacto" id="contacto">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker-line">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
-        Estamos para ayudarte
-      </div>
-      <h2>Contacto</h2>
-      <p>Comunícate con la escuela para dudas sobre inscripciones, talleres o actividades escolares.</p>
-    </div>
-
-    <div class="contacto-grid">
-      <div class="contacto-info">
-        <h3>Datos de la escuela</h3>
-        <div class="info-line">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.6 7-12a7 7 0 1 0-14 0c0 5.4 7 12 7 12Z"/><circle cx="12" cy="10" r="2.4"/></svg>
-          <div><strong>Dirección</strong><span>Esquipulas, Xoxocotlán, Oaxaca, México</span></div>
-        </div>
-        <div class="info-line">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
-          <div><strong>Correo electrónico</strong><span>contacto@secundaria21noviembre.mx</span></div>
-        </div>
-        <div class="info-line">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-          <div><strong>Horario de oficina</strong><span>Lunes a viernes, 8:00 a.m. – 2:00 p.m.</span></div>
-        </div>
-        <div class="map-frame">
-          <iframe title="Mapa de Esquipulas, Xoxocotlán" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-96.77%2C17.02%2C-96.71%2C17.07&amp;layer=mapnik&amp;marker=17.045%2C-96.74"></iframe>
-        </div>
-      </div>
-
-      <form class="contact-form" onsubmit="event.preventDefault();alert('Gracias por tu mensaje. Pronto nos pondremos en contacto.');this.reset();">
-        <div class="row2">
-          <div>
-            <label for="nombre">Nombre completo</label>
-            <input id="nombre" name="nombre" type="text" required>
-          </div>
-          <div>
-            <label for="telefono">Teléfono</label>
-            <input id="telefono" name="telefono" type="tel">
-          </div>
-        </div>
-        <div>
-          <label for="email">Correo electrónico</label>
-          <input id="email" name="email" type="email" required>
-        </div>
-        <div>
-          <label for="asunto">Asunto</label>
-          <select id="asunto" name="asunto">
-            <option>Información general</option>
-            <option>Inscripciones</option>
-            <option>Talleres</option>
-            <option>Actividades extraescolares</option>
-          </select>
-        </div>
-        <div>
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" required></textarea>
-        </div>
-        <p class="form-note">Al enviar aceptas que la escuela utilice tus datos para responder a tu consulta.</p>
-        <button type="submit" class="btn btn-navy" style="justify-self:flex-start;">Enviar mensaje</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="escudo.png" alt="Escudo de la Escuela Secundaria General 21 de Noviembre">
-        <div>
-          <h4>Secundaria General 21 de Noviembre</h4>
-          <p>Esquipulas, Xoxocotlán, Oaxaca · Ciencia y Virtud</p>
-        </div>
-      </div>
-      <div>
-        <h5>Secciones</h5>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#quienes-somos">Quiénes somos</a></li>
-          <li><a href="#talleres">Talleres</a></li>
-          <li><a href="#noticias">Recursos y noticias</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Comunidad</h5>
-        <ul>
-          <li><a href="#vida-estudiantil">Vida estudiantil</a></li>
-          <li><a href="#info-practica">Información práctica</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Síguenos</h5>
-        <ul>
-          <li><a href="https://www.facebook.com/profile.php?id=61572067992651&locale=es_LA" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="mailto:contacto@secundaria21noviembre.com">Correo</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Escuela Secundaria General 21 de Noviembre. Todos los derechos reservados.</span>
-      <span>Hecho con cariño en Esquipulas, Oaxaca.</span>
-    </div>
-  </div>
-</footer>
-
-<button class="to-top" id="toTop" aria-label="Volver arriba">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg>
-</button>
-
-<script>
-(function(){
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  var menuToggle = document.getElementById('menuToggle');
-  var primaryNav = document.getElementById('primaryNav');
-  if(menuToggle){
-    menuToggle.addEventListener('click', function(){
-      var open = primaryNav.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-  primaryNav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ primaryNav.classList.remove('open'); });
-  });
-
-  var header = document.getElementById('siteHeader');
-  var toTop = document.getElementById('toTop');
-  window.addEventListener('scroll', function(){
-    if(window.scrollY > 40) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-    if(window.scrollY > 500) toTop.classList.add('show'); else toTop.classList.remove('show');
-  });
-  toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
-
-  var ribbon = document.getElementById('ribbon1');
-  if(ribbon){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){ ribbon.classList.add('in-view'); io.disconnect(); }
-      });
-    },{threshold:.25});
-    io.observe(ribbon);
-  }
-
-  var track = document.getElementById('testiTrack');
-  var slides = track ? Array.prototype.slice.call(track.children) : [];
-  var dotsWrap = document.getElementById('testiDots');
-  var counter = document.getElementById('testiCounter');
-  var idx = 0;
-  function render(){
-    if(!track) return;
-    track.style.transform = 'translateX(' + (-idx * 100) + '%)';
-    if(counter) counter.textContent = String(idx + 1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
-    if(dotsWrap){
-      Array.prototype.forEach.call(dotsWrap.children, function(d,i){ d.classList.toggle('active', i===idx); });
+  /* autoplay for "Recursos y noticias" carousel */
+  var momentosEl = document.getElementById('momentosCarousel');
+  var momentosTimer;
+  function momentosStep(){
+    if (!momentosEl) return;
+    var card = momentosEl.querySelector('.momento-card');
+    var amount = card ? (card.getBoundingClientRect().width + 22) : 260;
+    var atEnd = momentosEl.scrollLeft + momentosEl.clientWidth >= momentosEl.scrollWidth - 6;
+    if (atEnd){
+      momentosEl.scrollTo({ left: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    } else {
+      momentosEl.scrollBy({ left: amount, behavior: reduceMotion ? 'auto' : 'smooth' });
     }
   }
-  if(dotsWrap){
-    slides.forEach(function(_,i){
-      var b = document.createElement('button');
-      b.type='button';
-      b.setAttribute('aria-label','Ir al testimonio ' + (i+1));
-      b.addEventListener('click', function(){ idx=i; render(); });
-      dotsWrap.appendChild(b);
-    });
+  function startMomentosAutoplay(){
+    if (reduceMotion || !momentosEl) return;
+    clearInterval(momentosTimer);
+    momentosTimer = setInterval(momentosStep, 3800);
   }
-  var prev = document.getElementById('testiPrev');
-  var next = document.getElementById('testiNext');
-  if(prev) prev.addEventListener('click', function(){ idx = (idx - 1 + slides.length) % slides.length; render(); });
-  if(next) next.addEventListener('click', function(){ idx = (idx + 1) % slides.length; render(); });
-  render();
-
-  document.querySelectorAll('[data-scroll-target]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var target = document.getElementById(btn.getAttribute('data-scroll-target'));
-      var dir = parseInt(btn.getAttribute('data-dir'), 10) || 1;
-      if(target) target.scrollBy({left: dir * target.clientWidth * 0.8, behavior:'smooth'});
-    });
-  });
-
-  document.querySelectorAll('.h-carousel').forEach(function(el){
-    var down=false, startX=0, scrollStart=0;
-    el.addEventListener('mousedown', function(e){ down=true; el.classList.add('grabbing'); startX=e.pageX; scrollStart=el.scrollLeft; });
-    ['mouseleave','mouseup'].forEach(function(evt){ el.addEventListener(evt, function(){ down=false; el.classList.remove('grabbing'); }); });
-    el.addEventListener('mousemove', function(e){ if(!down) return; e.preventDefault(); el.scrollLeft = scrollStart - (e.pageX - startX); });
-  });
-
-  var stats = document.querySelectorAll('[data-count-to]');
-  if(stats.length){
-    var io2 = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(!en.isIntersecting) return;
-        var el = en.target;
-        var target = parseInt(el.getAttribute('data-count-to'), 10);
-        var cur = 0;
-        var step = Math.max(1, Math.round(target/30));
-        var t = setInterval(function(){
-          cur += step;
-          if(cur >= target){ cur = target; clearInterval(t); }
-          el.textContent = cur;
-        }, 40);
-        io2.unobserve(el);
-      });
-    },{threshold:.5});
-    stats.forEach(function(s){ io2.observe(s); });
+  function restartMomentosAutoplay(){
+    clearInterval(momentosTimer);
+    startMomentosAutoplay();
   }
-
-  var sections = ['inicio','quienes-somos','talleres','vida-estudiantil','info-practica','noticias','contacto'];
-  var links = document.querySelectorAll('nav.primary-nav a[href^="#"]');
-  var io3 = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(!en.isIntersecting) return;
-      var id = en.target.id;
-      links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href') === '#' + id); });
-    });
-  },{rootMargin:'-40% 0px -55% 0px'});
-  sections.forEach(function(id){ var s = document.getElementById(id); if(s) io3.observe(s); });
+  if (momentosEl){
+    momentosEl.addEventListener('mouseenter', function(){ clearInterval(momentosTimer); });
+    momentosEl.addEventListener('mouseleave', startMomentosAutoplay);
+    momentosEl.addEventListener('touchstart', function(){ clearInterval(momentosTimer); }, { passive:true });
+    momentosEl.addEventListener('touchend', function(){ setTimeout(startMomentosAutoplay, 2500); });
+    momentosEl.addEventListener('mousedown', function(){ clearInterval(momentosTimer); });
+    startMomentosAutoplay();
+  }
 })();
 </script>
 </body>
