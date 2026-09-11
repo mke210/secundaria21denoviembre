@@ -306,9 +306,12 @@
   .momento-media video{width:100%;height:100%;object-fit:cover;display:block;}
   .momento-media.photo-pair{gap:2px;padding:0;}
   .momento-media.photo-pair img{width:50%;height:100%;object-fit:cover;flex:none;}
+  .momento-media.photo-pair video{width:50%;height:100%;object-fit:cover;flex:none;background:#000;}
   .video-grid{height:300px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:var(--navy-deep);}
+  .video-grid-3{height:300px;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr;gap:3px;background:var(--navy-deep);}
   .video-slot{position:relative;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;}
   .video-slot video{width:100%;height:100%;object-fit:contain;background:#000;}
+  .video-grid-3 .video-slot video{object-fit:cover;}
   .video-slot.placeholder{background:linear-gradient(150deg,var(--navy),var(--navy-deep));color:var(--gold-bright);flex-direction:column;gap:6px;text-align:center;padding:6px;}
   .video-slot.placeholder svg{width:22px;height:22px;opacity:.85;}
   .video-slot.placeholder span{font-size:.68rem;font-weight:600;color:#B9CCE5;}
@@ -945,12 +948,22 @@
       <div class="momento-card">
         <div class="momento-media photo-pair">
           <img src="img/banda-guerra-1.jpg" alt="La Banda de Guerra en formación durante una presentación escolar">
-          <img src="img/banda-guerra-2.jpg" alt="Integrantes de la Banda de Guerra con tambores y trompetas">
+          <video src="img/banda-guerra-tambores.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Estudiantes tocando los tambores de la Banda de Guerra"></video>
         </div>
         <div class="momento-body"><span class="momento-tag">Banda de Guerra</span><h4>Convocatoria a nuevos integrantes</h4><p>Abre inscripción para estudiantes interesados en participar.</p></div>
       </div>
       <div class="momento-card">
-        <div class="momento-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></div>
+        <div class="momento-media video-grid-3">
+          <div class="video-slot">
+            <video src="img/basquet.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Video de un partido de basquetbol en la zona escolar"></video>
+          </div>
+          <div class="video-slot">
+            <video src="img/fut.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Video de un partido de futbol 7 en la zona escolar"></video>
+          </div>
+          <div class="video-slot">
+            <video src="img/voley.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Video de un partido de voleibol en la zona escolar"></video>
+          </div>
+        </div>
         <div class="momento-body"><span class="momento-tag">Deportes</span><h4>Calendario de eventos de zona</h4><p>Fechas de basquetbol, futbol 7 y voleibol.</p></div>
       </div>
       <div class="momento-card">
