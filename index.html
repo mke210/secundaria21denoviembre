@@ -1159,12 +1159,12 @@
         </div>
       </div>
 
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" action="mailto:veintiuno.de.noviembre.esc.sec.gral@gmail.com" method="POST" enctype="text/plain">
         <div class="row2">
-          <div><label for="nombre">Nombre completo</label><input id="nombre" type="text" required placeholder="Tu nombre"></div>
+          <div><label for="nombre">Nombre completo</label><input id="nombre" name="Nombre" type="text" required placeholder="Tu nombre"></div>
           <div>
             <label for="parentesco">Eres</label>
-            <select id="parentesco">
+            <select id="parentesco" name="Eres">
               <option>Madre / padre de familia</option>
               <option>Estudiante</option>
               <option>Egresado</option>
@@ -1173,10 +1173,10 @@
           </div>
         </div>
         <div class="row2">
-          <div><label for="correo">Correo electrónico</label><input id="correo" type="email" required placeholder="tucorreo@ejemplo.com"></div>
-          <div><label for="telefono">Teléfono (opcional)</label><input id="telefono" type="tel" placeholder="951 000 0000"></div>
+          <div><label for="correo">Correo electrónico</label><input id="correo" name="Correo" type="email" required placeholder="tucorreo@ejemplo.com"></div>
+          <div><label for="telefono">Teléfono (opcional)</label><input id="telefono" name="Telefono" type="tel" placeholder="951 000 0000"></div>
         </div>
-        <div><label for="mensaje">Mensaje</label><textarea id="mensaje" required placeholder="Cuéntanos en qué podemos ayudarte"></textarea></div>
+        <div><label for="mensaje">Mensaje</label><textarea id="mensaje" name="Mensaje" required placeholder="Cuéntanos en qué podemos ayudarte"></textarea></div>
         <button class="btn btn-navy" type="submit" style="justify-self:start;">Enviar mensaje</button>
         <p class="form-note">Al enviar, se abrirá tu aplicación de correo con el mensaje listo para mandarlo a la escuela.</p>
       </form>
@@ -1412,33 +1412,6 @@
     momentosEl.addEventListener('touchend', function(){ setTimeout(startMomentosAutoplay, 2500); });
     momentosEl.addEventListener('mousedown', function(){ clearInterval(momentosTimer); });
     startMomentosAutoplay();
-  }
-
-  /* formulario de contacto -> abre el correo con los datos listos */
-  var contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var nombre = document.getElementById('nombre').value;
-      var parentesco = document.getElementById('parentesco').value;
-      var correo = document.getElementById('correo').value;
-      var telefono = document.getElementById('telefono').value;
-      var mensaje = document.getElementById('mensaje').value;
-
-      var asunto = 'Mensaje desde la página web — ' + nombre;
-      var cuerpo =
-        'Nombre: ' + nombre + '\n' +
-        'Eres: ' + parentesco + '\n' +
-        'Correo: ' + correo + '\n' +
-        'Teléfono: ' + (telefono || 'No proporcionado') + '\n\n' +
-        'Mensaje:\n' + mensaje;
-
-      var mailto = 'veintiuno.de.noviembre.esc.sec.gral@gmail.com'
-        + '?subject=' + encodeURIComponent(asunto)
-        + '&body=' + encodeURIComponent(cuerpo);
-
-      window.location.href = mailto;
-    });
   }
 })();
 </script>
