@@ -418,6 +418,61 @@
   .to-top:hover{background:var(--gold-bright);}
   .to-top svg{width:20px;height:20px;}
 
+  /* ============ asistente flotante ============ */
+  .asist-btn{
+    position:fixed;right:22px;bottom:86px;width:62px;height:62px;border-radius:50%;
+    background:var(--white);border:3px solid var(--gold);box-shadow:0 10px 26px rgba(11,45,87,.35);
+    padding:0;cursor:pointer;z-index:200;overflow:hidden;transition:transform .2s var(--ease);
+  }
+  .asist-btn:hover{transform:scale(1.06);}
+  .asist-btn img{width:100%;height:100%;object-fit:cover;display:block;}
+  .asist-btn .asist-dot{position:absolute;top:3px;right:3px;width:13px;height:13px;border-radius:50%;background:#3BB25C;border:2px solid var(--white);}
+  .asist-panel{
+    position:fixed;right:22px;bottom:158px;width:min(340px,90vw);max-height:min(70vh,520px);
+    background:var(--white);border-radius:16px;box-shadow:0 24px 60px rgba(11,45,87,.35);
+    display:flex;flex-direction:column;overflow:hidden;z-index:200;
+    opacity:0;pointer-events:none;transform:translateY(14px) scale(.97);transition:opacity .22s var(--ease),transform .22s var(--ease);
+  }
+  .asist-panel.open{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
+  .asist-head{background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:var(--white);display:flex;align-items:center;gap:10px;padding:12px 14px;}
+  .asist-head img{width:34px;height:34px;border-radius:50%;flex:none;border:2px solid var(--gold);}
+  .asist-head strong{display:block;font-size:.92rem;}
+  .asist-head span{display:block;font-size:.72rem;color:#B9CCE5;}
+  .asist-close{margin-left:auto;background:transparent;border:0;color:var(--white);cursor:pointer;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;flex:none;}
+  .asist-close:hover{background:rgba(255,255,255,.15);}
+  .asist-close svg{width:16px;height:16px;}
+  .asist-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--paper);}
+  .asist-msg{max-width:85%;padding:9px 12px;border-radius:12px;font-size:.86rem;line-height:1.45;}
+  .asist-msg.bot{background:var(--white);border:1px solid #E1E9F4;color:var(--ink);align-self:flex-start;border-bottom-left-radius:3px;}
+  .asist-msg.user{background:var(--navy);color:var(--white);align-self:flex-end;border-bottom-right-radius:3px;}
+  .asist-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px;}
+  .asist-chip{background:var(--sky-pale);border:1px solid #C9DCEE;color:var(--navy);font-size:.76rem;padding:6px 10px;border-radius:999px;cursor:pointer;transition:background .2s ease;}
+  .asist-chip:hover{background:var(--sky-pale-2);}
+  .asist-form{display:flex;gap:8px;padding:10px;border-top:1px solid #E1E9F4;background:var(--white);}
+  .asist-form input{flex:1;border:1px solid #C9DCEE;border-radius:999px;padding:9px 14px;font-size:.86rem;font-family:inherit;}
+  .asist-form input:focus{outline:2px solid var(--gold);outline-offset:1px;}
+  .asist-form button{width:38px;height:38px;border-radius:50%;border:0;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;}
+  .asist-form button:hover{background:var(--gold-bright);}
+  .asist-form button svg{width:16px;height:16px;}
+  .asist-admin{padding:14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;}
+  .asist-admin label{font-size:.78rem;font-weight:700;color:var(--navy);}
+  .asist-admin input,.asist-admin textarea{border:1px solid #C9DCEE;border-radius:10px;padding:9px 11px;font-size:.85rem;font-family:inherit;width:100%;resize:vertical;}
+  .asist-admin input:focus,.asist-admin textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
+  .asist-admin .btn-row{display:flex;gap:8px;}
+  .asist-admin .btn-mini{flex:1;background:var(--navy);color:var(--white);border:0;border-radius:9px;padding:9px;font-size:.82rem;font-weight:600;cursor:pointer;}
+  .asist-admin .btn-mini:hover{background:var(--navy-deep);}
+  .asist-admin .btn-mini.ghost{background:transparent;color:var(--navy);border:1px solid #C9DCEE;}
+  .asist-admin .asist-error{color:#C0392B;font-size:.78rem;}
+  .asist-admin-list{display:flex;flex-direction:column;gap:8px;max-height:150px;overflow-y:auto;border-top:1px solid #E1E9F4;border-bottom:1px solid #E1E9F4;padding:10px 0;}
+  .asist-admin-item{background:var(--sky-pale);border-radius:9px;padding:8px 10px;font-size:.78rem;display:flex;gap:8px;align-items:flex-start;}
+  .asist-admin-item .aai-text{flex:1;}
+  .asist-admin-item .aai-kws{font-weight:700;color:var(--navy);display:block;}
+  .asist-admin-item button{background:transparent;border:0;color:#C0392B;cursor:pointer;font-size:.78rem;font-weight:700;flex:none;}
+  @media (max-width:600px){
+    .asist-btn{width:54px;height:54px;bottom:78px;right:16px;}
+    .asist-panel{right:10px;bottom:140px;width:min(320px,94vw);}
+  }
+
   /* ============ responsive ============ */
   @media (max-width:980px){
     .hero-inner{grid-template-columns:1fr;text-align:left;}
@@ -483,10 +538,6 @@
         <span class="word">Ciencia</span><span class="rule"></span><span class="word">y</span><span class="rule"></span><span class="word">Virtud</span>
       </div>
       <p class="hero-lede rise rise-5">Formamos adolescentes con pensamiento crítico, habilidades técnicas y valores firmes, para que lleguen preparados al bachillerato y a la vida en comunidad.</p>
-      <div class="cta-row rise rise-6">
-        <a class="btn btn-gold" href="#inscripcion">Inscripciones y requisitos</a>
-        <a class="btn btn-outline" href="#horarios">Calendario y horarios</a>
-      </div>
     </div>
     <div class="hero-shield rise rise-3">
       <img src="img/escudo.png" alt="Escudo institucional E.S.G. 21 de Noviembre, Esquipulas — Ciencia y Virtud">
@@ -574,31 +625,34 @@
           <div class="stat"><b data-count-to="3">0</b><span>disciplinas deportivas de zona: basquetbol, futbol 7 y voleibol</span></div>
           <div class="stat"><b data-count-to="1">0</b><span>Banda de Guerra representativa de la institución</span></div>
           <div class="stat"><b data-count-to="21">0</b><span>de noviembre, la fecha que da nombre a nuestra escuela</span></div>
+          <div class="stat"><b data-count-to="6">0</b><span>academias para organizar proyectos escolares: articulan el trabajo colegiado y promueven proyectos interdisciplinarios</span></div>
+          <div class="stat"><b data-count-to="5">0</b><span>prefectas que llevan la disciplina de la escuela: acompañan las normas, el orden y la sana convivencia</span></div>
+          <div class="stat"><b data-count-to="2">0</b><span>turnos en la escuela, matutino y mixto: amplían la cobertura y organizan el servicio educativo</span></div>
         </div>
       </div>
     </div>
 
     <div class="team-grid">
       <div class="team-card">
-        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></div>
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 13h20"/></svg></div>
         <h4>Dirección</h4>
         <span class="role">Dirección escolar</span>
         <p>Conduce el proyecto educativo de la institución y representa a la escuela ante la comunidad y las autoridades.</p>
       </div>
       <div class="team-card">
-        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 10-10-5L2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></div>
         <h4>Subdirección académica</h4>
         <span class="role">Coordinación pedagógica</span>
         <p>Da seguimiento al trabajo docente, a la evaluación y al desempeño académico de los tres grados.</p>
       </div>
       <div class="team-card">
-        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.6 1Z"/></svg></div>
         <h4>Coordinación de talleres</h4>
         <span class="role">Educación tecnológica</span>
         <p>Organiza informática, ofimática, circuitos eléctricos y turismo, y su vínculo con el trabajo por proyectos.</p>
       </div>
       <div class="team-card">
-        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8.7 8 10 4.5-1.3 8-5 8-10V6l-8-4Z"/></svg></div>
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V3"/><path d="M4 4c1-1 2-1 4-1s3 1 5 1 3-1 4-1v9c-1 1-2 1-4 1s-3-1-5-1-3 1-4 1"/></svg></div>
         <h4>Actividades cívicas y deportivas</h4>
         <span class="role">Banda de Guerra y deportes</span>
         <p>Coordina los ensayos de la Banda de Guerra y la preparación de los equipos que representan a la escuela en la zona escolar.</p>
@@ -918,9 +972,9 @@
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg></div>
         <div><strong>Acuerdos de convivencia</strong><span>PDF · próximamente</span></div>
       </a>
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="https://calendarioescolar.sep.gob.mx/" target="_blank" rel="noopener">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg></div>
-        <div><strong>Calendario escolar</strong><span>PDF · próximamente</span></div>
+        <div><strong>Calendario escolar</strong><span>Sitio oficial SEP</span></div>
       </a>
       <a class="doc-card" href="#">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg></div>
@@ -1105,7 +1159,7 @@
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Gracias por escribirnos. Este formulario es una demostración; conéctalo a tu correo o a Facebook Messenger para recibir mensajes reales.');">
+      <form class="contact-form" id="contactForm">
         <div class="row2">
           <div><label for="nombre">Nombre completo</label><input id="nombre" type="text" required placeholder="Tu nombre"></div>
           <div>
@@ -1124,7 +1178,7 @@
         </div>
         <div><label for="mensaje">Mensaje</label><textarea id="mensaje" required placeholder="Cuéntanos en qué podemos ayudarte"></textarea></div>
         <button class="btn btn-navy" type="submit" style="justify-self:start;">Enviar mensaje</button>
-        <p class="form-note">Formulario de demostración: los mensajes no se envían todavía. Puede conectarse a un correo real o a un servicio de formularios cuando la escuela lo indique.</p>
+        <p class="form-note">Al enviar, se abrirá tu aplicación de correo con el mensaje listo para mandarlo a la escuela.</p>
       </form>
     </div>
   </div>
@@ -1174,6 +1228,32 @@
 <button class="to-top" id="toTop" aria-label="Volver arriba">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
+
+<button class="asist-btn" id="asistBtn" aria-label="Abrir asistente de la escuela">
+  <img src="img/leon.png" alt="Asistente de la Escuela Secundaria General 21 de Noviembre">
+  <span class="asist-dot" aria-hidden="true"></span>
+</button>
+
+<div class="asist-panel" id="asistPanel" role="dialog" aria-label="Asistente 21 de Noviembre">
+  <div class="asist-head">
+    <img src="img/leon.png" alt="">
+    <div>
+      <strong>Asistente 21 de Noviembre</strong>
+      <span>Responde con lo publicado en esta página</span>
+    </div>
+    <button class="asist-close" id="asistClose" aria-label="Cerrar asistente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="asist-body" id="asistBody"></div>
+  <div class="asist-chips" id="asistChips"></div>
+  <form class="asist-form" id="asistForm">
+    <input id="asistInput" type="text" placeholder="Escribe tu pregunta..." autocomplete="off">
+    <button type="submit" aria-label="Enviar pregunta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
+    </button>
+  </form>
+</div>
 
 <script>
 (function(){
@@ -1332,6 +1412,33 @@
     momentosEl.addEventListener('touchend', function(){ setTimeout(startMomentosAutoplay, 2500); });
     momentosEl.addEventListener('mousedown', function(){ clearInterval(momentosTimer); });
     startMomentosAutoplay();
+  }
+
+  /* formulario de contacto -> abre el correo con los datos listos */
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nombre = document.getElementById('nombre').value;
+      var parentesco = document.getElementById('parentesco').value;
+      var correo = document.getElementById('correo').value;
+      var telefono = document.getElementById('telefono').value;
+      var mensaje = document.getElementById('mensaje').value;
+
+      var asunto = 'Mensaje desde la página web — ' + nombre;
+      var cuerpo =
+        'Nombre: ' + nombre + '\n' +
+        'Eres: ' + parentesco + '\n' +
+        'Correo: ' + correo + '\n' +
+        'Teléfono: ' + (telefono || 'No proporcionado') + '\n\n' +
+        'Mensaje:\n' + mensaje;
+
+      var mailto = 'mailto:21deNoviembre.esc.sec.gral@gmail.com'
+        + '?subject=' + encodeURIComponent(asunto)
+        + '&body=' + encodeURIComponent(cuerpo);
+
+      window.location.href = mailto;
+    });
   }
 })();
 </script>
@@ -1520,6 +1627,240 @@
   audio.addEventListener("play", function () { btnPlay.textContent = "⏸"; setGif(true); });
   audio.addEventListener("pause", function () { btnPlay.textContent = "▶"; });
   audio.addEventListener("ended", siguiente);
+})();
+</script>
+
+<!-- ================= ASISTENTE FLOTANTE (León) ================= -->
+<script>
+(function () {
+  "use strict";
+
+  var btn = document.getElementById('asistBtn');
+  var panel = document.getElementById('asistPanel');
+  var closeBtn = document.getElementById('asistClose');
+  var body = document.getElementById('asistBody');
+  var chipsWrap = document.getElementById('asistChips');
+  var form = document.getElementById('asistForm');
+  var input = document.getElementById('asistInput');
+  if (!btn || !panel) return;
+
+  // Respuestas basadas SOLO en información que ya está publicada en esta página.
+  var FAQ = [
+    { kws: ['inscrip', 'requisito', 'documento', 'papeles', 'tramite'],
+      a: 'Para inscribirte necesitas: acta de nacimiento original y copia, CURP actualizada, certificado de educación primaria, comprobante de domicilio reciente, cuatro fotografías tamaño infantil y certificado médico vigente. Puedes ver el detalle en la sección "Inscripciones y requisitos" de esta página.' },
+    { kws: ['horario', 'hora de entrada', 'hora de salida', 'entrada', 'salida', 'receso', 'clases duran'],
+      a: 'Turno Matutino: entrada 7:00 a.m., salida 1:20 p.m. Turno Mixto: entrada 8:40 a.m., salida 3:00 p.m. El receso es de 10:20 a 10:50 a.m. en ambos turnos, y las clases duran 50 minutos.' },
+    { kws: ['turno'],
+      a: 'Manejamos dos turnos: Matutino y Mixto, de lunes a viernes. Consulta el horario completo en la sección "Horarios".' },
+    { kws: ['ubicaci', 'direccion', 'dónde', 'donde queda', 'donde esta', 'mapa', 'llegar'],
+      a: 'Estamos en Esquipulas, Xoxocotlán, Oaxaca, México. Puedes ver el mapa completo en la sección "Contacto y ubicación" de esta página.' },
+    { kws: ['telefono', 'teléfono', 'numero de contacto', 'llamar', 'whatsapp'],
+      a: 'Por ahora no tenemos un número de teléfono publicado en la página. Escríbenos por Facebook o llena el formulario de contacto, en la parte de abajo, y te respondemos.' },
+    { kws: ['uniforme', 'proveedor'],
+      a: 'Todavía no tenemos publicado en la página quién surte los uniformes. Te recomendamos preguntar directamente en la dirección de la escuela.' },
+    { kws: ['extraordinario', 'examen', 'regularizacion', 'regularización'],
+      a: 'Las fechas de exámenes extraordinarios aún no están publicadas en esta página. Te recomendamos preguntar directamente en la dirección de la escuela o estar al pendiente de los avisos en Facebook.' },
+    { kws: ['taller', 'ofimatica', 'informatica', 'circuito', 'turismo', 'academia'],
+      a: 'Ofrecemos 4 talleres técnicos: Informática, Ofimática, Circuitos eléctricos y Turismo, organizados en 6 academias que trabajan por proyectos.' },
+    { kws: ['deporte', 'basquet', 'básquet', 'futbol', 'fútbol', 'voleibol'],
+      a: 'Participamos en basquetbol, futbol 7 y voleibol dentro del calendario de eventos de la zona escolar. Puedes verlo en la tarjeta "Calendario de eventos de zona", en Vida estudiantil.' },
+    { kws: ['banda de guerra', 'tambor'],
+      a: 'La Banda de Guerra está abierta a nuevos integrantes. Revisa la convocatoria en la sección "Vida estudiantil y actividades extraescolares".' },
+    { kws: ['cuota', 'costo', 'pago', 'gratis', 'gratuita', 'precio'],
+      a: 'La educación en esta escuela pública es gratuita. La Sociedad de Padres de Familia define, cada ciclo escolar, una cuota de cooperación voluntaria para el mantenimiento de las instalaciones.' },
+    { kws: ['facebook', 'redes', 'red social'],
+      a: 'Puedes seguirnos en Facebook como "Escuela Secundaria General 21 de Noviembre" — ahí publicamos avisos y eventos.' },
+    { kws: ['contacto', 'mensaje', 'escribir', 'correo'],
+      a: 'Puedes escribirnos por Facebook o llenar el formulario en la sección "Contacto y ubicación"; al enviarlo se abre tu correo dirigido a la escuela.' },
+    { kws: ['prefecta', 'disciplina'],
+      a: 'La escuela cuenta con 5 prefectas encargadas de acompañar las normas, el orden y la sana convivencia.' }
+  ];
+
+  var FALLBACK = 'No tengo esa información publicada todavía en la página. Te recomiendo escribirnos por Facebook o por el formulario de contacto, en la parte de abajo de esta página.';
+
+  var CHIPS = ['Requisitos de inscripción', 'Horarios', 'Ubicación', 'Talleres', 'Teléfono', 'Cuota escolar'];
+
+  function normalize(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function addMsg(text, who) {
+    var div = document.createElement('div');
+    div.className = 'asist-msg ' + who;
+    div.textContent = text;
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  var ADMIN_PASSWORD = 'elprofechan@gmail.com';
+  var STORAGE_KEY = 'p21_asist_custom_faq';
+
+  function loadCustomFAQ() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) { return []; }
+  }
+  function saveCustomFAQ(list) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch (e) {}
+  }
+  var customFAQ = loadCustomFAQ();
+
+  function answer(question) {
+    var q = normalize(question);
+    var all = customFAQ.concat(FAQ); // lo agregado por el admin tiene prioridad
+    for (var i = 0; i < all.length; i++) {
+      for (var j = 0; j < all[i].kws.length; j++) {
+        if (q.indexOf(normalize(all[i].kws[j])) !== -1) return all[i].a;
+      }
+    }
+    return FALLBACK;
+  }
+
+  function ask(text) {
+    if (!text || !text.trim()) return;
+    addMsg(text, 'user');
+    setTimeout(function () { addMsg(answer(text), 'bot'); }, 350);
+  }
+
+  function renderChips() {
+    chipsWrap.innerHTML = '';
+    CHIPS.forEach(function (c) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'asist-chip';
+      b.textContent = c;
+      b.addEventListener('click', function () { ask(c); });
+      chipsWrap.appendChild(b);
+    });
+  }
+
+  function showChatUI(show) {
+    body.style.display = show ? '' : 'none';
+    chipsWrap.style.display = show ? '' : 'none';
+    form.style.display = show ? '' : 'none';
+  }
+
+  function openPanel() {
+    panel.classList.add('open');
+    showChatUI(true);
+    if (!body.childNodes.length) {
+      addMsg('¡Hola! Soy el asistente de la Escuela Secundaria General 21 de Noviembre 🦁. Puedo responder con la información publicada en esta página: inscripciones, horarios, ubicación, talleres y más. ¿En qué te ayudo?', 'bot');
+      renderChips();
+    }
+  }
+  function closePanel() { panel.classList.remove('open'); }
+
+  /* ============ modo administrador (triple clic en el león) ============ */
+  var adminBox = document.createElement('div');
+  adminBox.className = 'asist-admin';
+  adminBox.style.display = 'none';
+  panel.insertBefore(adminBox, chipsWrap);
+
+  function showPasswordPrompt() {
+    panel.classList.add('open');
+    showChatUI(false);
+    adminBox.style.display = 'flex';
+    adminBox.innerHTML =
+      '<label for="asistPw">Contraseña de administrador</label>' +
+      '<input id="asistPw" type="password" placeholder="Contraseña" autocomplete="off">' +
+      '<p class="asist-error" id="asistPwErr" style="display:none;">Contraseña incorrecta.</p>' +
+      '<div class="btn-row">' +
+        '<button type="button" class="btn-mini" id="asistPwOk">Entrar</button>' +
+        '<button type="button" class="btn-mini ghost" id="asistPwCancel">Cancelar</button>' +
+      '</div>';
+
+    var pwInput = document.getElementById('asistPw');
+    var pwErr = document.getElementById('asistPwErr');
+    pwInput.focus();
+
+    function tryLogin() {
+      if (pwInput.value === ADMIN_PASSWORD) {
+        pwErr.style.display = 'none';
+        renderAdminPanel();
+      } else {
+        pwErr.style.display = 'block';
+      }
+    }
+    document.getElementById('asistPwOk').addEventListener('click', tryLogin);
+    pwInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryLogin(); });
+    document.getElementById('asistPwCancel').addEventListener('click', function () {
+      adminBox.style.display = 'none';
+      showChatUI(true);
+    });
+  }
+
+  function renderAdminPanel() {
+    adminBox.innerHTML =
+      '<label>Agregar información nueva</label>' +
+      '<input id="aaKws" type="text" placeholder="Palabras clave, separadas por coma">' +
+      '<textarea id="aaAns" rows="3" placeholder="Respuesta que dará el asistente"></textarea>' +
+      '<div class="btn-row"><button type="button" class="btn-mini" id="aaSave">Guardar</button></div>' +
+      '<label style="margin-top:6px;">Información agregada (' + customFAQ.length + ')</label>' +
+      '<div class="asist-admin-list" id="aaList"></div>' +
+      '<div class="btn-row"><button type="button" class="btn-mini ghost" id="aaExit">Salir del modo administrador</button></div>';
+
+    var list = document.getElementById('aaList');
+    if (!customFAQ.length) {
+      list.innerHTML = '<span class="small" style="color:var(--ink-soft);font-size:.78rem;">Aún no has agregado nada.</span>';
+    } else {
+      customFAQ.forEach(function (item, idx) {
+        var row = document.createElement('div');
+        row.className = 'asist-admin-item';
+        row.innerHTML =
+          '<div class="aai-text"><span class="aai-kws">' + item.kws.join(', ') + '</span>' + item.a + '</div>' +
+          '<button type="button" data-idx="' + idx + '">Borrar</button>';
+        row.querySelector('button').addEventListener('click', function () {
+          customFAQ.splice(idx, 1);
+          saveCustomFAQ(customFAQ);
+          renderAdminPanel();
+        });
+        list.appendChild(row);
+      });
+    }
+
+    document.getElementById('aaSave').addEventListener('click', function () {
+      var kwsRaw = document.getElementById('aaKws').value;
+      var ansRaw = document.getElementById('aaAns').value;
+      if (!kwsRaw.trim() || !ansRaw.trim()) return;
+      var kws = kwsRaw.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      customFAQ.push({ kws: kws, a: ansRaw.trim() });
+      saveCustomFAQ(customFAQ);
+      renderAdminPanel();
+    });
+
+    document.getElementById('aaExit').addEventListener('click', function () {
+      adminBox.style.display = 'none';
+      showChatUI(true);
+    });
+  }
+
+  var clickCount = 0;
+  var clickTimer = null;
+  btn.addEventListener('click', function () {
+    clickCount++;
+    if (clickTimer) clearTimeout(clickTimer);
+    clickTimer = setTimeout(function () {
+      if (clickCount >= 3) {
+        showPasswordPrompt();
+      } else {
+        if (panel.classList.contains('open') && adminBox.style.display === 'none') closePanel();
+        else openPanel();
+      }
+      clickCount = 0;
+    }, 380);
+  });
+  closeBtn.addEventListener('click', function () {
+    closePanel();
+    adminBox.style.display = 'none';
+    showChatUI(true);
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = input.value;
+    input.value = '';
+    ask(v);
+  });
 })();
 </script>
 </body>
