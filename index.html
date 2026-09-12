@@ -1159,7 +1159,7 @@
         </div>
       </div>
 
-      <form class="contact-form" id="contactForm" action="mailto:veintiuno.de.noviembre.esc.sec.gral@gmail.com" method="POST" enctype="text/plain">
+      <form class="contact-form" id="contactForm">
         <div class="row2">
           <div><label for="nombre">Nombre completo</label><input id="nombre" name="Nombre" type="text" required placeholder="Tu nombre"></div>
           <div>
@@ -1412,6 +1412,38 @@
     momentosEl.addEventListener('touchend', function(){ setTimeout(startMomentosAutoplay, 2500); });
     momentosEl.addEventListener('mousedown', function(){ clearInterval(momentosTimer); });
     startMomentosAutoplay();
+  }
+
+  /* formulario de contacto -> abre el correo con los datos listos, sin marcar el form como "inseguro" */
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nombre = document.getElementById('nombre').value;
+      var parentesco = document.getElementById('parentesco').value;
+      var correo = document.getElementById('correo').value;
+      var telefono = document.getElementById('telefono').value;
+      var mensaje = document.getElementById('mensaje').value;
+
+      var asunto = 'Mensaje desde la página web — ' + nombre;
+      var cuerpo =
+        'Nombre: ' + nombre + '\n' +
+        'Eres: ' + parentesco + '\n' +
+        'Correo: ' + correo + '\n' +
+        'Teléfono: ' + (telefono || 'No proporcionado') + '\n\n' +
+        'Mensaje:\n' + mensaje;
+
+      var mailto = 'mailto:veintiuno.de.noviembre.esc.sec.gral@gmail.com'
+        + '?subject=' + encodeURIComponent(asunto)
+        + '&body=' + encodeURIComponent(cuerpo);
+
+      var a = document.createElement('a');
+      a.href = mailto;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
   }
 })();
 </script>
