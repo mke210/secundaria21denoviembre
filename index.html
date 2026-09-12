@@ -420,7 +420,7 @@
 
   /* ============ asistente flotante ============ */
   .asist-btn{
-    position:fixed;right:22px;bottom:86px;width:62px;height:62px;border-radius:50%;
+    position:fixed;right:22px;bottom:86px;width:68px;height:68px;border-radius:50%;
     background:var(--white);border:3px solid var(--gold);box-shadow:0 10px 26px rgba(11,45,87,.35);
     padding:0;cursor:pointer;z-index:200;overflow:hidden;transition:transform .2s var(--ease);
   }
@@ -469,7 +469,7 @@
   .asist-admin-item .aai-kws{font-weight:700;color:var(--navy);display:block;}
   .asist-admin-item button{background:transparent;border:0;color:#C0392B;cursor:pointer;font-size:.78rem;font-weight:700;flex:none;}
   @media (max-width:600px){
-    .asist-btn{width:54px;height:54px;bottom:78px;right:16px;}
+    .asist-btn{width:59px;height:59px;bottom:78px;right:16px;}
     .asist-panel{right:10px;bottom:140px;width:min(320px,94vw);}
   }
 
@@ -621,13 +621,13 @@
       <div class="historia-art">
         <h4>La escuela en números</h4>
         <div class="stat-row">
-          <div class="stat"><b data-count-to="4">0</b><span>talleres técnicos: informática, ofimática, circuitos eléctricos y turismo</span></div>
-          <div class="stat"><b data-count-to="3">0</b><span>disciplinas deportivas de zona: basquetbol, futbol 7 y voleibol</span></div>
-          <div class="stat"><b data-count-to="1">0</b><span>Banda de Guerra representativa de la institución</span></div>
-          <div class="stat"><b data-count-to="21">0</b><span>de noviembre, la fecha que da nombre a nuestra escuela</span></div>
           <div class="stat"><b data-count-to="6">0</b><span>academias para organizar proyectos escolares: articulan el trabajo colegiado y promueven proyectos interdisciplinarios</span></div>
           <div class="stat"><b data-count-to="5">0</b><span>prefectas que llevan la disciplina de la escuela: acompañan las normas, el orden y la sana convivencia</span></div>
+          <div class="stat"><b data-count-to="4">0</b><span>talleres técnicos: informática, ofimática, circuitos eléctricos y turismo</span></div>
+          <div class="stat"><b data-count-to="3">0</b><span>disciplinas deportivas de zona: basquetbol, futbol 7 y voleibol</span></div>
           <div class="stat"><b data-count-to="2">0</b><span>turnos en la escuela, matutino y mixto: amplían la cobertura y organizan el servicio educativo</span></div>
+          <div class="stat"><b data-count-to="1">0</b><span>Banda de Guerra representativa de la institución</span></div>
+          <div class="stat"><b data-count-to="21">0</b><span>de noviembre, la fecha que da nombre a nuestra escuela</span></div>
         </div>
       </div>
     </div>
@@ -1654,20 +1654,12 @@
       a: 'Manejamos dos turnos: Matutino y Mixto, de lunes a viernes. Consulta el horario completo en la sección "Horarios".' },
     { kws: ['ubicaci', 'direccion', 'dónde', 'donde queda', 'donde esta', 'mapa', 'llegar'],
       a: 'Estamos en Esquipulas, Xoxocotlán, Oaxaca, México. Puedes ver el mapa completo en la sección "Contacto y ubicación" de esta página.' },
-    { kws: ['telefono', 'teléfono', 'numero de contacto', 'llamar', 'whatsapp'],
-      a: 'Por ahora no tenemos un número de teléfono publicado en la página. Escríbenos por Facebook o llena el formulario de contacto, en la parte de abajo, y te respondemos.' },
-    { kws: ['uniforme', 'proveedor'],
-      a: 'Todavía no tenemos publicado en la página quién surte los uniformes. Te recomendamos preguntar directamente en la dirección de la escuela.' },
-    { kws: ['extraordinario', 'examen', 'regularizacion', 'regularización'],
-      a: 'Las fechas de exámenes extraordinarios aún no están publicadas en esta página. Te recomendamos preguntar directamente en la dirección de la escuela o estar al pendiente de los avisos en Facebook.' },
     { kws: ['taller', 'ofimatica', 'informatica', 'circuito', 'turismo', 'academia'],
       a: 'Ofrecemos 4 talleres técnicos: Informática, Ofimática, Circuitos eléctricos y Turismo, organizados en 6 academias que trabajan por proyectos.' },
     { kws: ['deporte', 'basquet', 'básquet', 'futbol', 'fútbol', 'voleibol'],
       a: 'Participamos en basquetbol, futbol 7 y voleibol dentro del calendario de eventos de la zona escolar. Puedes verlo en la tarjeta "Calendario de eventos de zona", en Vida estudiantil.' },
     { kws: ['banda de guerra', 'tambor'],
       a: 'La Banda de Guerra está abierta a nuevos integrantes. Revisa la convocatoria en la sección "Vida estudiantil y actividades extraescolares".' },
-    { kws: ['cuota', 'costo', 'pago', 'gratis', 'gratuita', 'precio'],
-      a: 'La educación en esta escuela pública es gratuita. La Sociedad de Padres de Familia define, cada ciclo escolar, una cuota de cooperación voluntaria para el mantenimiento de las instalaciones.' },
     { kws: ['facebook', 'redes', 'red social'],
       a: 'Puedes seguirnos en Facebook como "Escuela Secundaria General 21 de Noviembre" — ahí publicamos avisos y eventos.' },
     { kws: ['contacto', 'mensaje', 'escribir', 'correo'],
@@ -1678,7 +1670,7 @@
 
   var FALLBACK = 'No tengo esa información publicada todavía en la página. Te recomiendo escribirnos por Facebook o por el formulario de contacto, en la parte de abajo de esta página.';
 
-  var CHIPS = ['Requisitos de inscripción', 'Horarios', 'Ubicación', 'Talleres', 'Teléfono', 'Cuota escolar'];
+  var CHIPS = ['Requisitos de inscripción', 'Horarios', 'Ubicación', 'Talleres', 'Banda de Guerra', 'Prefectas'];
 
   function normalize(s) {
     return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
