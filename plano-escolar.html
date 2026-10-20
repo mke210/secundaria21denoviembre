@@ -113,13 +113,8 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,38px);lin
 .imgscroll{overflow:auto;border-radius:8px;border:1px solid var(--line);background:#fff}
 .imgscroll img{display:block;width:100%;height:auto;max-width:100%}
 .notice{font-size:13px;color:var(--muted);background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:8px 12px}
-.embed-bar{display:none;align-items:center;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--muted)}
-.embed-bar a{color:var(--accent);font-weight:700;text-decoration:none}
-.embed-bar a:hover{text-decoration:underline}
-body.is-embed .embed-bar{display:flex}
-body.is-embed header,body.is-embed .toolbar{display:none}
-body.is-embed{padding-block:0}
-body.is-embed .wrap{gap:8px}
+body.is-embed{padding-block:14px 20px}
+body.is-embed .wrap{gap:10px}
 
 /* tooltip */
 .tip{position:fixed;z-index:50;pointer-events:none;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:180px;max-width:260px;box-shadow:0 12px 30px rgba(0,0,0,.18);opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
@@ -195,11 +190,6 @@ form textarea{min-height:64px;resize:vertical}
       <input id="q" type="search" placeholder="Buscar espacio, taller o maestro" aria-label="Buscar espacio, taller o maestro" autocomplete="off">
     </label>
     <div class="cats" id="cats" aria-label="Filtrar por tipo"></div>
-  </div>
-
-  <div class="embed-bar" id="embedBar">
-    <span>Plano de la escuela — arrastra para girar, toca un espacio para ver detalles</span>
-    <a id="openFull" href="plano-escolar.html" target="_blank" rel="noopener">Buscar, filtrar o descargar imagen ↗</a>
   </div>
 
   <div class="notice" id="notice" hidden></div>
