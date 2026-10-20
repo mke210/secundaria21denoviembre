@@ -105,6 +105,13 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,38px);lin
 .rot{position:absolute;right:12px;top:12px;display:flex;gap:6px;z-index:2}
 .rot button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:grid;place-items:center}
 .stage:not(.is3d)~.rot{display:none}
+#imgview{max-width:1240px;margin:14px auto 0}
+.imgcard{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.imgbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.imgbar h2{font:800 22px var(--display);margin:0}
+.imgbar .btn{display:inline-flex;align-items:center;gap:8px}
+.imgscroll{overflow:auto;border-radius:8px;border:1px solid var(--line);background:#fff}
+.imgscroll img{display:block;width:100%;height:auto;max-width:100%}
 .notice{font-size:13px;color:var(--muted);background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:8px 12px}
 
 /* tooltip */
@@ -171,6 +178,7 @@ form textarea{min-height:64px;resize:vertical}
     <div class="seg" role="group" aria-label="Vista">
       <button type="button" id="v2d" aria-pressed="false">2D</button>
       <button type="button" id="v3d" aria-pressed="true">3D</button>
+      <button type="button" id="vimg" aria-pressed="false">Imagen</button>
     </div>
   </header>
 
@@ -199,6 +207,17 @@ form textarea{min-height:64px;resize:vertical}
   </div>
 </div>
 
+<div id="imgview" hidden>
+  <section class="imgcard">
+    <div class="imgbar">
+      <div><h2>Plano ilustrado</h2><p class="sub" style="margin:2px 0 0">Imagen PNG de 1755 × 896 px, lista para imprimir o compartir.</p></div>
+      <button class="btn primary" type="button" id="dl"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8L8 10.3l3.5-3.5M2.5 13.5h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Descargar imagen</button>
+    </div>
+    <div class="imgscroll"><img id="planoImg" src="plano-escolar.png" alt="Plano ilustrado de la escuela con salones, talleres, techados, cancha de fútbol y estacionamiento" width="1755" height="896"></div>
+    <p class="status" id="dlState" aria-live="polite"></p>
+  </section>
+</div>
+
 <div class="tip" id="tip" role="tooltip"></div>
 
 <div class="overlay" id="overlay" aria-hidden="true">
@@ -221,7 +240,7 @@ const RAW=[
  ['bodega-n10','Bodega',336,12,28,50,'','serv'],['a14','A14',312,92,40,26,'Nave 9','aula'],['a13','A13',312,118,40,27,'Nave 9','aula'],
  ['a19','A19',384,12,26,32,'Nave 13','aula'],['a18','A18',384,44,26,32,'Nave 13','aula'],['a17','A17',384,76,26,32,'Nave 13','aula'],['a16','A16',384,108,26,36,'Nave 13','aula'],
  ['a20','A20',436,48,40,26,'Nave 14','aula'],['a21','A21',436,74,40,26,'Nave 14','aula'],['a22','A22',436,100,40,25,'Nave 14','aula'],
- ['taller-n12','Taller',394,158,42,59,'Nave 12','taller'],['taller-n11','Taller',338,267,48,66,'Nave 11','taller'],
+ ['taller-n12','Taller',394,158,42,59,'Nave 12','taller','house','Informática'],['taller-n11','Taller',338,267,48,66,'Nave 11','taller','house','Ofimática'],
  ['techado-1','Techado',440,134,43,120,'','techado','roof'],['techado-2','Techado',441,256,146,72,'','techado','roof'],
  ['cancha','Cancha de fútbol',491,39,279,203,'','exterior','pitch'],
  ['galera','Galera',83,180,30,84,'','techado','roof'],['prefectura','Prefectura',42,279,32,53,'','admin'],['admin-t2','Admin. T2',128,180,74,17,'Nave 3','admin'],['direccion','Dirección',128,197,74,17,'Nave 3','admin'],['admin-t1','Admin. T1',128,230,74,18,'Nave 3','admin'],
@@ -340,11 +359,28 @@ function fit(){
   stage.style.height=Math.round(404*scale*(is3d?1.22:1)+28)+'px';
   plan.style.transform=is3d?`scale(${k}) rotateX(${rx}deg) rotateZ(${rz}deg)`:`scale(${k})`;
 }
-function setView(three){is3d=three;stage.classList.toggle('is3d',three);document.getElementById('v3d').setAttribute('aria-pressed',three);document.getElementById('v2d').setAttribute('aria-pressed',!three);
+const boardEls=[document.querySelector('.toolbar'),document.querySelector('.board')];
+const imgview=document.getElementById('imgview');
+function showImage(on){boardEls.forEach(e=>e.hidden=on);imgview.hidden=!on;document.getElementById('vimg').setAttribute('aria-pressed',on);
+  if(on){document.getElementById('v3d').setAttribute('aria-pressed',false);document.getElementById('v2d').setAttribute('aria-pressed',false);hideTip()}}
+function setView(three){showImage(false);is3d=three;stage.classList.toggle('is3d',three);document.getElementById('v3d').setAttribute('aria-pressed',three);document.getElementById('v2d').setAttribute('aria-pressed',!three);
   document.getElementById('hintTxt').textContent=three?'Arrastra el plano para girarlo.':'Vista desde arriba.';fit();
   try{localStorage.setItem('plano-vista',three?'3d':'2d')}catch(e){}}
 document.getElementById('v2d').onclick=()=>setView(false);
 document.getElementById('v3d').onclick=()=>setView(true);
+document.getElementById('vimg').onclick=()=>showImage(true);
+document.getElementById('dl').onclick=async()=>{
+  const st=document.getElementById('dlState'),btn=document.getElementById('dl');
+  btn.disabled=true;st.textContent='Preparando la descarga…';
+  try{
+    const dl=window.claude&&window.claude.use?await window.claude.use('downloads'):null;
+    if(!dl){st.innerHTML='La descarga directa no está disponible aquí. <a href="plano-escolar.png" target="_blank" rel="noopener">Abre la imagen en otra pestaña</a> y guárdala desde ahí.';return}
+    const blob=await (await fetch('plano-escolar.png')).blob();
+    const r=await dl.save({filename:'plano-escolar.png',data:blob});
+    st.textContent=r&&r.status==='saved'?'Imagen descargada.':'';
+  }catch(e){st.textContent=e&&e.code==='declined'?'':'No se pudo descargar la imagen. Intenta de nuevo.'}
+  finally{btn.disabled=false}
+};
 document.getElementById('rotL').onclick=()=>{rz-=45;fit()};
 document.getElementById('rotR').onclick=()=>{rz+=45;fit()};
 window.addEventListener('resize',fit);
