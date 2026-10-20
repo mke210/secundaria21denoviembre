@@ -113,6 +113,13 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,38px);lin
 .imgscroll{overflow:auto;border-radius:8px;border:1px solid var(--line);background:#fff}
 .imgscroll img{display:block;width:100%;height:auto;max-width:100%}
 .notice{font-size:13px;color:var(--muted);background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:8px 12px}
+.embed-bar{display:none;align-items:center;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--muted)}
+.embed-bar a{color:var(--accent);font-weight:700;text-decoration:none}
+.embed-bar a:hover{text-decoration:underline}
+body.is-embed .embed-bar{display:flex}
+body.is-embed header,body.is-embed .toolbar{display:none}
+body.is-embed{padding-block:0}
+body.is-embed .wrap{gap:8px}
 
 /* tooltip */
 .tip{position:fixed;z-index:50;pointer-events:none;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:180px;max-width:260px;box-shadow:0 12px 30px rgba(0,0,0,.18);opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
@@ -188,6 +195,11 @@ form textarea{min-height:64px;resize:vertical}
       <input id="q" type="search" placeholder="Buscar espacio, taller o maestro" aria-label="Buscar espacio, taller o maestro" autocomplete="off">
     </label>
     <div class="cats" id="cats" aria-label="Filtrar por tipo"></div>
+  </div>
+
+  <div class="embed-bar" id="embedBar">
+    <span>Plano de la escuela — arrastra para girar, toca un espacio para ver detalles</span>
+    <a id="openFull" href="plano-escolar.html" target="_blank" rel="noopener">Buscar, filtrar o descargar imagen ↗</a>
   </div>
 
   <div class="notice" id="notice" hidden></div>
@@ -373,12 +385,16 @@ document.getElementById('dl').onclick=async()=>{
   const st=document.getElementById('dlState'),btn=document.getElementById('dl');
   btn.disabled=true;st.textContent='Preparando la descarga…';
   try{
-    const dl=window.claude&&window.claude.use?await window.claude.use('downloads'):null;
-    if(!dl){st.innerHTML='La descarga directa no está disponible aquí. <a href="plano-escolar.png" target="_blank" rel="noopener">Abre la imagen en otra pestaña</a> y guárdala desde ahí.';return}
-    const blob=await (await fetch('plano-escolar.png')).blob();
-    const r=await dl.save({filename:'plano-escolar.png',data:blob});
-    st.textContent=r&&r.status==='saved'?'Imagen descargada.':'';
-  }catch(e){st.textContent=e&&e.code==='declined'?'':'No se pudo descargar la imagen. Intenta de nuevo.'}
+    const resp=await fetch('plano-escolar.png');
+    if(!resp.ok)throw new Error('http');
+    const blob=await resp.blob();
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;a.download='plano-escolar.png';
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),4000);
+    st.textContent='Imagen descargada.';
+  }catch(e){st.innerHTML='No se pudo descargar automáticamente. <a href="plano-escolar.png" target="_blank" rel="noopener">Abre la imagen en otra pestaña</a> y guárdala desde ahí (clic derecho → Guardar imagen).';}
   finally{btn.disabled=false}
 };
 document.getElementById('rotL').onclick=()=>{rz-=45;fit()};
@@ -518,7 +534,31 @@ async function boot(){
     saveState.textContent='Los cambios se guardan solo en este navegador';
   }
   if(canEdit===false)saveState.textContent='Vista de consulta';
+  reportHeight();
 }
+
+/* ---------- modo incrustado (iframe en rf.html): oculta controles y avisa la altura real ---------- */
+try{
+  if(new URLSearchParams(location.search).get('embed')==='1'){
+    document.body.classList.add('is-embed');
+  }
+}catch(e){}
+function reportHeight(){
+  if(window.parent && window.parent!==window){
+    try{
+      const h=Math.ceil(document.documentElement.getBoundingClientRect().height);
+      window.parent.postMessage({type:'plano-altura',height:h},'*');
+    }catch(e){}
+  }
+}
+window.addEventListener('load',reportHeight);
+window.addEventListener('resize',reportHeight);
+if('ResizeObserver' in window){
+  new ResizeObserver(reportHeight).observe(document.body);
+}else{
+  setInterval(reportHeight,800);
+}
+
 boot();
 })();
 </script>
